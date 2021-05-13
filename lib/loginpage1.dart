@@ -21,7 +21,7 @@ class Loginpage extends StatelessWidget {
                   textStyle: TextStyle(
                       fontSize: 30,
                       color: Colors.black,
-                      fontWeight: FontWeight.bold)),
+                      fontWeight: FontWeight.w500)),
             ),
             SizedBox(
               width: 10,
@@ -96,9 +96,18 @@ class Loginpage extends StatelessWidget {
                     "Don't have an account ? ",
                     style: TextStyle(fontSize: 15),
                   ),
-                  Text(
-                    "Sign up",
-                    style: TextStyle(fontSize: 15),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, "/loginpage2");
+                    },
+                    child: Text(
+                      "Sign up",
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.blue,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
                 ],
               ),

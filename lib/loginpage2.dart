@@ -19,7 +19,7 @@ class Loginpage2 extends StatelessWidget {
                   textStyle: TextStyle(
                       fontSize: 30,
                       color: Colors.black,
-                      fontWeight: FontWeight.bold)),
+                      fontWeight: FontWeight.w500)),
             ),
             SizedBox(
               width: 10,
@@ -37,7 +37,7 @@ class Loginpage2 extends StatelessWidget {
               height: 50,
             ),
             SizedBox(
-              height: 50,
+              height: 30,
             ),
             Padding(
               padding: const EdgeInsets.only(right: 300),
@@ -103,21 +103,29 @@ class Loginpage2 extends StatelessWidget {
               height: 60,
             ),
             SizedBox(
-              height: 50,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Already have an account ? ",
-                    style: TextStyle(fontSize: 15),
-                  ),
-                  Text(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Already have an account ? ",
+                  style: TextStyle(fontSize: 15),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, "/");
+                  },
+                  child: Text(
                     "Log in",
-                    style: TextStyle(fontSize: 15),
+                    style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.blue,
+                        fontWeight: FontWeight.bold),
                   ),
-                ],
-              ),
-            )
+                ),
+              ],
+            ),
           ],
         ),
       ),
