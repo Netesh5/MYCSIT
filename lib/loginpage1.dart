@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
@@ -16,7 +15,7 @@ class Loginpage extends StatelessWidget {
               height: 40,
             ),
             Text(
-              "Log in",
+              "My CSIT",
               style: GoogleFonts.notoSans(
                   textStyle: TextStyle(
                       fontSize: 30,
@@ -24,8 +23,19 @@ class Loginpage extends StatelessWidget {
                       fontWeight: FontWeight.w500)),
             ),
             SizedBox(
+              height: 30,
+            ),
+            Text(
+              "Welcome back!",
+              style: GoogleFonts.notoSans(
+                  textStyle: TextStyle(
+                      fontSize: 20,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500)),
+            ),
+            SizedBox(
               width: 10,
-              height: 50,
+              height: 30,
             ),
             SizedBox(
               child: SignInButton(

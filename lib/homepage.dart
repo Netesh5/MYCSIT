@@ -5,8 +5,19 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 // ignore: must_be_immutable
-class Homepage extends StatelessWidget {
+class Homepage extends StatefulWidget {
+  @override
+  _HomepageState createState() => _HomepageState();
+}
+
+class _HomepageState extends State<Homepage> {
   var name = "Nitesh";
+  int _selectedItem = 0;
+  void _ontap(int index) {
+    setState(() {
+      _selectedItem = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +38,6 @@ class Homepage extends StatelessWidget {
       ),
       drawer: Drawer(),
       bottomNavigationBar: BottomNavigationBar(
-        selectedFontSize: 16.0,
-        selectedItemColor: Colors.black,
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -36,253 +45,285 @@ class Homepage extends StatelessWidget {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.notifications),
-            label: "Notification",
+            label: "Notifications",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.feedback),
             label: "Feedback",
           ),
-          /* BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
-            label: "Notification",
-          ), */
         ],
+        currentIndex: _selectedItem,
+        selectedItemColor: Colors.black,
+        selectedLabelStyle: TextStyle(fontSize: 16),
+        onTap: _ontap,
       ),
-      body: Container(
-        padding: EdgeInsets.only(top: 10, left: 30),
-        child: Column(
-          children: [
-            /*  Text(
-              "Hi $name!",
-              style: GoogleFonts.notoSans(
-                textStyle: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ),
-            Text("Good Evening ",
+      body: SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.only(top: 10, left: 30),
+          child: Column(
+            children: [
+              /*  Text(
+                "Hi $name!",
                 style: GoogleFonts.notoSans(
                   textStyle: TextStyle(
-                    fontSize: 16,
+                    fontSize: 25,
                     fontWeight: FontWeight.w500,
                   ),
-                )), */
-            CarouselSlider(
-              items: [
-                Container(
-                  margin: EdgeInsets.all(8.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.0),
-                    image: DecorationImage(
-                      image: AssetImage("assets/images/1.jpg"),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
                 ),
-                Container(
-                  margin: EdgeInsets.all(8.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.0),
-                    image: DecorationImage(
-                      image: AssetImage("assets/images/2.jpg"),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.all(8.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.0),
-                    image: DecorationImage(
-                      image: AssetImage("assets/images/3.jpg"),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-              ],
-              options: CarouselOptions(
-                height: 180.0,
-                enlargeCenterPage: true,
-                autoPlay: true,
-                aspectRatio: 16 / 9,
-                autoPlayCurve: Curves.fastOutSlowIn,
-                enableInfiniteScroll: true,
-                autoPlayAnimationDuration: Duration(milliseconds: 800),
-                viewportFraction: 0.8,
               ),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            Column(
-              children: [
-                Row(
-                  children: [
-                    Container(
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 10, left: 8),
-                        child: FaIcon(
-                          FontAwesomeIcons.chalkboardTeacher,
-                          size: 60,
-                        ),
-                      ),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          border: Border.all(color: Colors.black)),
-                      width: 100,
-                      height: 100,
+              Text("Good Evening ",
+                  style: GoogleFonts.notoSans(
+                    textStyle: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 25.0),
-                      child: Container(
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 15, left: 20),
-                          child: FaIcon(
-                            FontAwesomeIcons.book,
-                            size: 60,
-                          ),
-                        ),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(50),
-                            border: Border.all(color: Colors.black)),
-                        width: 100,
-                        height: 100,
+                  )), */
+              CarouselSlider(
+                items: [
+                  Container(
+                    margin: EdgeInsets.all(8.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8.0),
+                      image: DecorationImage(
+                        image: AssetImage("assets/images/1.jpg"),
+                        fit: BoxFit.cover,
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 25.0),
-                      child: Container(
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 15, left: 15),
-                          child: FaIcon(
-                            FontAwesomeIcons.bookOpen,
-                            size: 60,
-                          ),
-                        ),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(50),
-                            border: Border.all(color: Colors.black)),
-                        width: 100,
-                        height: 100,
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(8.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8.0),
+                      image: DecorationImage(
+                        image: AssetImage("assets/images/2.jpg"),
+                        fit: BoxFit.cover,
                       ),
                     ),
-                  ],
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(8.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8.0),
+                      image: DecorationImage(
+                        image: AssetImage("assets/images/3.jpg"),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                ],
+                options: CarouselOptions(
+                  height: 180.0,
+                  enlargeCenterPage: true,
+                  autoPlay: true,
+                  aspectRatio: 16 / 9,
+                  autoPlayCurve: Curves.fastOutSlowIn,
+                  enableInfiniteScroll: true,
+                  autoPlayAnimationDuration: Duration(milliseconds: 800),
+                  viewportFraction: 0.8,
                 ),
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 12.0),
-                      child: Text(
-                        "Notice Board",
-                        style: TextStyle(
-                            fontSize: 15, fontWeight: FontWeight.w500),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 12.0, left: 55.0),
-                      child: Text(
-                        "Notes",
-                        style: TextStyle(
-                            fontSize: 15, fontWeight: FontWeight.w500),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 12.0, left: 50.0),
-                      child: Text(
-                        "Past Questions",
-                        style: TextStyle(
-                            fontSize: 15, fontWeight: FontWeight.w500),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 30.0),
-                      child: Container(
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 10, left: 18),
-                          child: FaIcon(
-                            FontAwesomeIcons.shareSquare,
-                            size: 60,
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Column(
+                children: [
+                  Row(
+                    children: [
+                      InkWell(
+                        child: Container(
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 10, left: 8),
+                            child: FaIcon(
+                              FontAwesomeIcons.chalkboardTeacher,
+                              size: 60,
+                            ),
                           ),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              border: Border.all(color: Colors.black)),
+                          width: 100,
+                          height: 100,
                         ),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(50),
-                            border: Border.all(color: Colors.black)),
-                        width: 100,
-                        height: 100,
+                        onTap: () {
+                          Navigator.pushNamed(context, "/noticeboard");
+                        },
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 30.0, left: 25.0),
-                      child: Container(
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 15, left: 22),
-                          child: FaIcon(
-                            FontAwesomeIcons.phoneSquareAlt,
-                            size: 60,
+                      Padding(
+                        padding: const EdgeInsets.only(left: 25.0),
+                        child: InkWell(
+                          child: Container(
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 15, left: 20),
+                              child: FaIcon(
+                                FontAwesomeIcons.book,
+                                size: 60,
+                              ),
+                            ),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                border: Border.all(color: Colors.black)),
+                            width: 100,
+                            height: 100,
                           ),
+                          onTap: () {
+                            Navigator.pushNamed(context, "/notes");
+                          },
                         ),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(50),
-                            border: Border.all(color: Colors.black)),
-                        width: 100,
-                        height: 100,
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 30.0, left: 25.0),
-                      child: Container(
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 15, left: 20),
-                          child: FaIcon(
-                            FontAwesomeIcons.google,
-                            size: 60,
+                      Padding(
+                        padding: const EdgeInsets.only(left: 25.0),
+                        child: InkWell(
+                          child: Container(
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 15, left: 15),
+                              child: FaIcon(
+                                FontAwesomeIcons.bookOpen,
+                                size: 60,
+                              ),
+                            ),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                border: Border.all(color: Colors.black)),
+                            width: 100,
+                            height: 100,
                           ),
+                          onTap: () {
+                            Navigator.pushNamed(context, "/pastquestions");
+                          },
                         ),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(50),
-                            border: Border.all(color: Colors.black)),
-                        width: 100,
-                        height: 100,
                       ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 12.0),
-                      child: Text(
-                        "Resource share",
-                        style: TextStyle(
-                            fontSize: 15, fontWeight: FontWeight.w500),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 12.0),
+                        child: Text(
+                          "Notice Board",
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.w500),
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 12.0, left: 18.0),
-                      child: Text(
-                        "Contact info",
-                        style: TextStyle(
-                            fontSize: 15, fontWeight: FontWeight.w500),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 12.0, left: 55.0),
+                        child: Text(
+                          "Notes",
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.w500),
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 12.0, left: 50.0),
-                      child: Text(
-                        "Google",
-                        style: TextStyle(
-                            fontSize: 15, fontWeight: FontWeight.w500),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 12.0, left: 50.0),
+                        child: Text(
+                          "Past Questions",
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.w500),
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
-            )
-          ],
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 30.0),
+                        child: InkWell(
+                          child: Container(
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 10, left: 18),
+                              child: FaIcon(
+                                FontAwesomeIcons.shareSquare,
+                                size: 60,
+                              ),
+                            ),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                border: Border.all(color: Colors.black)),
+                            width: 100,
+                            height: 100,
+                          ),
+                          onTap: () {
+                            Navigator.pushNamed(context, "/resourceshare");
+                          },
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 30.0, left: 25.0),
+                        child: InkWell(
+                          child: Container(
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 15, left: 22),
+                              child: FaIcon(
+                                FontAwesomeIcons.phoneSquareAlt,
+                                size: 60,
+                              ),
+                            ),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                border: Border.all(color: Colors.black)),
+                            width: 100,
+                            height: 100,
+                          ),
+                          onTap: () {
+                            Navigator.pushNamed(context, "/contactinfo");
+                          },
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 30.0, left: 25.0),
+                        child: InkWell(
+                          child: Container(
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 15, left: 20),
+                              child: FaIcon(
+                                FontAwesomeIcons.google,
+                                size: 60,
+                              ),
+                            ),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                border: Border.all(color: Colors.black)),
+                            width: 100,
+                            height: 100,
+                          ),
+                          onTap: () {
+                            Navigator.pushNamed(context, "/google");
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 12.0),
+                        child: Text(
+                          "Resource share",
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.w500),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 12.0, left: 18.0),
+                        child: Text(
+                          "Contact info",
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.w500),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 12.0, left: 50.0),
+                        child: Text(
+                          "Google",
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.w500),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );

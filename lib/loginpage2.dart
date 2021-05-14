@@ -17,13 +17,24 @@ class Loginpage2 extends StatelessWidget {
               "Sign up",
               style: GoogleFonts.notoSans(
                   textStyle: TextStyle(
-                      fontSize: 30,
+                      fontSize: 25,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500)),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              "Create your account",
+              style: GoogleFonts.notoSans(
+                  textStyle: TextStyle(
+                      fontSize: 20,
                       color: Colors.black,
                       fontWeight: FontWeight.w500)),
             ),
             SizedBox(
               width: 10,
-              height: 50,
+              height: 20,
             ),
             SizedBox(
               child: SignInButton(
