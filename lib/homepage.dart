@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-//import 'package:google_fonts/google_fonts.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -62,22 +62,28 @@ class _HomepageState extends State<Homepage> {
           padding: EdgeInsets.only(top: 10, left: 30),
           child: Column(
             children: [
-              /*  Text(
-                "Hi $name!",
-                style: GoogleFonts.notoSans(
-                  textStyle: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-              Text("Good Evening ",
+                Padding(
+                  padding: const EdgeInsets.only(right: 240),
+                  child: Text(
+                  "Hi $name!",
                   style: GoogleFonts.notoSans(
                     textStyle: TextStyle(
-                      fontSize: 16,
+                      fontSize: 25,
                       fontWeight: FontWeight.w500,
                     ),
-                  )), */
+                  ),
+              ),
+                ),
+              Padding(
+                padding: const EdgeInsets.only(right: 250),
+                child: Text("Good Evening ",
+                    style: GoogleFonts.notoSans(
+                      textStyle: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    )),
+              ), 
               CarouselSlider(
                 items: [
                   Container(
@@ -197,7 +203,7 @@ class _HomepageState extends State<Homepage> {
                   Row(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(top: 12.0),
+                        padding: const EdgeInsets.only(top: 12.0, left: 5.0),
                         child: Text(
                           "Notice Board",
                           style: TextStyle(
@@ -205,7 +211,7 @@ class _HomepageState extends State<Homepage> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 12.0, left: 55.0),
+                        padding: const EdgeInsets.only(top: 12.0, left: 61.0),
                         child: Text(
                           "Notes",
                           style: TextStyle(
@@ -303,7 +309,7 @@ class _HomepageState extends State<Homepage> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 12.0, left: 18.0),
+                        padding: const EdgeInsets.only(top: 12.0, left: 30.0),
                         child: Text(
                           "Contact info",
                           style: TextStyle(
@@ -311,7 +317,7 @@ class _HomepageState extends State<Homepage> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 12.0, left: 50.0),
+                        padding: const EdgeInsets.only(top: 12.0, left: 60.0),
                         child: Text(
                           "Google",
                           style: TextStyle(
