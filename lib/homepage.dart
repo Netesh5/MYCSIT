@@ -61,19 +61,17 @@ class _HomepageState extends State<Homepage> {
         child: Container(
           padding: EdgeInsets.only(top: 10, left: 30),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-                Padding(
-                  padding: const EdgeInsets.only(right: 240),
-                  child: Text(
-                  "Hi $name!",
-                  style: GoogleFonts.notoSans(
-                    textStyle: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.w500,
-                    ),
+              Text(
+                "Hi $name!",
+                style: GoogleFonts.notoSans(
+                  textStyle: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.w500,
                   ),
-              ),
                 ),
+              ),
               Padding(
                 padding: const EdgeInsets.only(right: 250),
                 child: Text("Good Evening ",
@@ -83,7 +81,7 @@ class _HomepageState extends State<Homepage> {
                         fontWeight: FontWeight.w500,
                       ),
                     )),
-              ), 
+              ),
               CarouselSlider(
                 items: [
                   Container(
@@ -200,33 +198,33 @@ class _HomepageState extends State<Homepage> {
                       ),
                     ],
                   ),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 12.0, left: 5.0),
-                        child: Text(
+                  Padding(
+                    padding: const EdgeInsets.only(top: 12.0),
+                    child: Row(
+                      children: [
+                        Text(
                           "Notice Board",
                           style: TextStyle(
                               fontSize: 15, fontWeight: FontWeight.w500),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 12.0, left: 61.0),
-                        child: Text(
+                        SizedBox(
+                          width: 55,
+                        ),
+                        Text(
                           "Notes",
                           style: TextStyle(
                               fontSize: 15, fontWeight: FontWeight.w500),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 12.0, left: 50.0),
-                        child: Text(
+                        SizedBox(
+                          width: 55,
+                        ),
+                        Text(
                           "Past Questions",
                           style: TextStyle(
                               fontSize: 15, fontWeight: FontWeight.w500),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                   Row(
                     children: [
@@ -298,33 +296,33 @@ class _HomepageState extends State<Homepage> {
                       ),
                     ],
                   ),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 12.0),
-                        child: Text(
+                  Padding(
+                    padding: const EdgeInsets.only(top: 12.0),
+                    child: Row(
+                      children: [
+                        Text(
                           "Resource share",
                           style: TextStyle(
                               fontSize: 15, fontWeight: FontWeight.w500),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 12.0, left: 30.0),
-                        child: Text(
+                        SizedBox(
+                          width: 20,
+                        ),
+                        Text(
                           "Contact info",
                           style: TextStyle(
                               fontSize: 15, fontWeight: FontWeight.w500),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 12.0, left: 60.0),
-                        child: Text(
+                        SizedBox(
+                          width: 50,
+                        ),
+                        Text(
                           "Google",
                           style: TextStyle(
                               fontSize: 15, fontWeight: FontWeight.w500),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ],
               )
