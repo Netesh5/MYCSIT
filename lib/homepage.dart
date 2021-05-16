@@ -59,7 +59,7 @@ class _HomepageState extends State<Homepage> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.only(top: 10, left: 30),
+          padding: EdgeInsets.only(top: 10, left: 20, right: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -81,6 +81,9 @@ class _HomepageState extends State<Homepage> {
                         fontWeight: FontWeight.w500,
                       ),
                     )),
+              ),
+              SizedBox(
+                height: 10,
               ),
               CarouselSlider(
                 items: [
@@ -129,202 +132,195 @@ class _HomepageState extends State<Homepage> {
               SizedBox(
                 height: 30,
               ),
-              Column(
-                children: [
-                  Row(
-                    children: [
-                      InkWell(
-                        child: Container(
-                          child: Padding(
-                            padding: const EdgeInsets.only(top: 10, left: 8),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        InkWell(
+                          child: Container(
+                            alignment: Alignment.center,
                             child: FaIcon(
                               FontAwesomeIcons.chalkboardTeacher,
                               size: 60,
                             ),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                border: Border.all(color: Colors.black)),
+                            width: 100,
+                            height: 100,
                           ),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                              border: Border.all(color: Colors.black)),
-                          width: 100,
-                          height: 100,
+                          onTap: () {
+                            Navigator.pushNamed(context, "/noticeboard");
+                          },
                         ),
-                        onTap: () {
-                          Navigator.pushNamed(context, "/noticeboard");
-                        },
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 25.0),
-                        child: InkWell(
-                          child: Container(
-                            child: Padding(
-                              padding: const EdgeInsets.only(top: 15, left: 20),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 30.0),
+                          child: InkWell(
+                            child: Container(
+                              alignment: Alignment.center,
                               child: FaIcon(
                                 FontAwesomeIcons.book,
                                 size: 60,
                               ),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(50),
+                                  border: Border.all(color: Colors.black)),
+                              width: 100,
+                              height: 100,
                             ),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(50),
-                                border: Border.all(color: Colors.black)),
-                            width: 100,
-                            height: 100,
+                            onTap: () {
+                              Navigator.pushNamed(context, "/notes");
+                            },
                           ),
-                          onTap: () {
-                            Navigator.pushNamed(context, "/notes");
-                          },
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 25.0),
-                        child: InkWell(
-                          child: Container(
-                            child: Padding(
-                              padding: const EdgeInsets.only(top: 15, left: 15),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 30.0),
+                          child: InkWell(
+                            child: Container(
+                              alignment: Alignment.center,
                               child: FaIcon(
                                 FontAwesomeIcons.bookOpen,
                                 size: 60,
                               ),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(50),
+                                  border: Border.all(color: Colors.black)),
+                              width: 100,
+                              height: 100,
                             ),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(50),
-                                border: Border.all(color: Colors.black)),
-                            width: 100,
-                            height: 100,
+                            onTap: () {
+                              Navigator.pushNamed(context, "/pastquestions");
+                            },
                           ),
-                          onTap: () {
-                            Navigator.pushNamed(context, "/pastquestions");
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 12.0),
-                    child: Row(
-                      children: [
-                        Text(
-                          "Notice Board",
-                          style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.w500),
-                        ),
-                        SizedBox(
-                          width: 55,
-                        ),
-                        Text(
-                          "Notes",
-                          style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.w500),
-                        ),
-                        SizedBox(
-                          width: 55,
-                        ),
-                        Text(
-                          "Past Questions",
-                          style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.w500),
                         ),
                       ],
                     ),
-                  ),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 30.0),
-                        child: InkWell(
-                          child: Container(
-                            child: Padding(
-                              padding: const EdgeInsets.only(top: 10, left: 18),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 12.0),
+                      child: Row(
+                        children: [
+                          Text(
+                            "Notice Board",
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.w500),
+                          ),
+                          SizedBox(
+                            width: 60,
+                          ),
+                          Text(
+                            "Notes",
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.w500),
+                          ),
+                          SizedBox(
+                            width: 55,
+                          ),
+                          Text(
+                            "Past Questions",
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.w500),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 30.0),
+                          child: InkWell(
+                            child: Container(
+                              alignment: Alignment.center,
                               child: FaIcon(
                                 FontAwesomeIcons.shareSquare,
                                 size: 60,
                               ),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(50),
+                                  border: Border.all(color: Colors.black)),
+                              width: 100,
+                              height: 100,
                             ),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(50),
-                                border: Border.all(color: Colors.black)),
-                            width: 100,
-                            height: 100,
+                            onTap: () {
+                              Navigator.pushNamed(context, "/resourceshare");
+                            },
                           ),
-                          onTap: () {
-                            Navigator.pushNamed(context, "/resourceshare");
-                          },
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 30.0, left: 25.0),
-                        child: InkWell(
-                          child: Container(
-                            child: Padding(
-                              padding: const EdgeInsets.only(top: 15, left: 22),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 30.0, left: 30.0),
+                          child: InkWell(
+                            child: Container(
+                              alignment: Alignment.center,
                               child: FaIcon(
                                 FontAwesomeIcons.phoneSquareAlt,
                                 size: 60,
                               ),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(50),
+                                  border: Border.all(color: Colors.black)),
+                              width: 100,
+                              height: 100,
                             ),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(50),
-                                border: Border.all(color: Colors.black)),
-                            width: 100,
-                            height: 100,
+                            onTap: () {
+                              Navigator.pushNamed(context, "/contactinfo");
+                            },
                           ),
-                          onTap: () {
-                            Navigator.pushNamed(context, "/contactinfo");
-                          },
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 30.0, left: 25.0),
-                        child: InkWell(
-                          child: Container(
-                            child: Padding(
-                              padding: const EdgeInsets.only(top: 15, left: 20),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 30.0, left: 30.0),
+                          child: InkWell(
+                            child: Container(
+                              alignment: Alignment.center,
                               child: FaIcon(
                                 FontAwesomeIcons.google,
                                 size: 60,
                               ),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(50),
+                                  border: Border.all(color: Colors.black)),
+                              width: 100,
+                              height: 100,
                             ),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(50),
-                                border: Border.all(color: Colors.black)),
-                            width: 100,
-                            height: 100,
+                            onTap: () {
+                              Navigator.pushNamed(context, "/google");
+                            },
                           ),
-                          onTap: () {
-                            Navigator.pushNamed(context, "/google");
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 12.0),
-                    child: Row(
-                      children: [
-                        Text(
-                          "Resource share",
-                          style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.w500),
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Text(
-                          "Contact info",
-                          style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.w500),
-                        ),
-                        SizedBox(
-                          width: 50,
-                        ),
-                        Text(
-                          "Google",
-                          style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.w500),
                         ),
                       ],
                     ),
-                  ),
-                ],
+                    Padding(
+                      padding: const EdgeInsets.only(top: 12.0),
+                      child: Row(
+                        children: [
+                          Text(
+                            "Resource share",
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.w500),
+                          ),
+                          SizedBox(
+                            width: 25,
+                          ),
+                          Text(
+                            "Contact info",
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.w500),
+                          ),
+                          SizedBox(
+                            width: 50,
+                          ),
+                          Text(
+                            "Google",
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.w500),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               )
             ],
           ),
