@@ -1,3 +1,4 @@
+import 'package:MYCSIT/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -36,7 +37,7 @@ class _HomepageState extends State<Homepage> {
         ],
         elevation: 0.0,
       ),
-      drawer: Drawer(),
+      drawer: Mydrawer(),
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
@@ -92,9 +93,8 @@ class _HomepageState extends State<Homepage> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8.0),
                       image: DecorationImage(
-                        image: AssetImage("assets/images/1.jpg"),
-                        fit: BoxFit.cover,
-                      ),
+                          image: AssetImage("assets/images/1.jpg"),
+                          fit: BoxFit.fill),
                     ),
                   ),
                   Container(
@@ -102,9 +102,8 @@ class _HomepageState extends State<Homepage> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8.0),
                       image: DecorationImage(
-                        image: AssetImage("assets/images/2.jpg"),
-                        fit: BoxFit.cover,
-                      ),
+                          image: AssetImage("assets/images/2.jpg"),
+                          fit: BoxFit.fill),
                     ),
                   ),
                   Container(
@@ -112,9 +111,8 @@ class _HomepageState extends State<Homepage> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8.0),
                       image: DecorationImage(
-                        image: AssetImage("assets/images/3.jpg"),
-                        fit: BoxFit.cover,
-                      ),
+                          image: AssetImage("assets/images/3.jpg"),
+                          fit: BoxFit.fill),
                     ),
                   ),
                 ],
@@ -132,19 +130,34 @@ class _HomepageState extends State<Homepage> {
               SizedBox(
                 height: 30,
               ),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        InkWell(
+              Column(
+                children: [
+                  Row(
+                    children: [
+                      InkWell(
+                        child: Container(
+                          alignment: Alignment.center,
+                          child: FaIcon(
+                            FontAwesomeIcons.chalkboardTeacher,
+                            size: 60,
+                          ),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              border: Border.all(color: Colors.black)),
+                          width: 100,
+                          height: 100,
+                        ),
+                        onTap: () {
+                          Navigator.pushNamed(context, "/noticeboard");
+                        },
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 30.0),
+                        child: InkWell(
                           child: Container(
                             alignment: Alignment.center,
                             child: FaIcon(
-                              FontAwesomeIcons.chalkboardTeacher,
+                              FontAwesomeIcons.book,
                               size: 60,
                             ),
                             decoration: BoxDecoration(
@@ -154,173 +167,153 @@ class _HomepageState extends State<Homepage> {
                             height: 100,
                           ),
                           onTap: () {
-                            Navigator.pushNamed(context, "/noticeboard");
+                            Navigator.pushNamed(context, "/notes");
                           },
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 30.0),
-                          child: InkWell(
-                            child: Container(
-                              alignment: Alignment.center,
-                              child: FaIcon(
-                                FontAwesomeIcons.book,
-                                size: 60,
-                              ),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(50),
-                                  border: Border.all(color: Colors.black)),
-                              width: 100,
-                              height: 100,
-                            ),
-                            onTap: () {
-                              Navigator.pushNamed(context, "/notes");
-                            },
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 30.0),
-                          child: InkWell(
-                            child: Container(
-                              alignment: Alignment.center,
-                              child: FaIcon(
-                                FontAwesomeIcons.bookOpen,
-                                size: 60,
-                              ),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(50),
-                                  border: Border.all(color: Colors.black)),
-                              width: 100,
-                              height: 100,
-                            ),
-                            onTap: () {
-                              Navigator.pushNamed(context, "/pastquestions");
-                            },
-                          ),
-                        ),
-                      ],
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 12.0),
-                      child: Row(
-                        children: [
-                          Text(
-                            "Notice Board",
-                            style: TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.w500),
-                          ),
-                          SizedBox(
-                            width: 60,
-                          ),
-                          Text(
-                            "Notes",
-                            style: TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.w500),
-                          ),
-                          SizedBox(
-                            width: 55,
-                          ),
-                          Text(
-                            "Past Questions",
-                            style: TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.w500),
-                          ),
-                        ],
                       ),
-                    ),
-                    Row(
+                      Padding(
+                        padding: const EdgeInsets.only(left: 30.0),
+                        child: InkWell(
+                          child: Container(
+                            alignment: Alignment.center,
+                            child: FaIcon(
+                              FontAwesomeIcons.bookOpen,
+                              size: 60,
+                            ),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                border: Border.all(color: Colors.black)),
+                            width: 100,
+                            height: 100,
+                          ),
+                          onTap: () {
+                            Navigator.pushNamed(context, "/pastquestions");
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 12.0),
+                    child: Row(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 30.0),
-                          child: InkWell(
-                            child: Container(
-                              alignment: Alignment.center,
-                              child: FaIcon(
-                                FontAwesomeIcons.shareSquare,
-                                size: 60,
-                              ),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(50),
-                                  border: Border.all(color: Colors.black)),
-                              width: 100,
-                              height: 100,
-                            ),
-                            onTap: () {
-                              Navigator.pushNamed(context, "/resourceshare");
-                            },
-                          ),
+                        Text(
+                          "Notice Board",
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.w500),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 30.0, left: 30.0),
-                          child: InkWell(
-                            child: Container(
-                              alignment: Alignment.center,
-                              child: FaIcon(
-                                FontAwesomeIcons.phoneSquareAlt,
-                                size: 60,
-                              ),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(50),
-                                  border: Border.all(color: Colors.black)),
-                              width: 100,
-                              height: 100,
-                            ),
-                            onTap: () {
-                              Navigator.pushNamed(context, "/contactinfo");
-                            },
-                          ),
+                        SizedBox(
+                          width: 60,
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 30.0, left: 30.0),
-                          child: InkWell(
-                            child: Container(
-                              alignment: Alignment.center,
-                              child: FaIcon(
-                                FontAwesomeIcons.google,
-                                size: 60,
-                              ),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(50),
-                                  border: Border.all(color: Colors.black)),
-                              width: 100,
-                              height: 100,
-                            ),
-                            onTap: () {
-                              Navigator.pushNamed(context, "/google");
-                            },
-                          ),
+                        Text(
+                          "Notes",
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.w500),
+                        ),
+                        SizedBox(
+                          width: 55,
+                        ),
+                        Text(
+                          "Past Questions",
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.w500),
                         ),
                       ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 12.0),
-                      child: Row(
-                        children: [
-                          Text(
-                            "Resource share",
-                            style: TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.w500),
+                  ),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 30.0),
+                        child: InkWell(
+                          child: Container(
+                            alignment: Alignment.center,
+                            child: FaIcon(
+                              FontAwesomeIcons.shareSquare,
+                              size: 60,
+                            ),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                border: Border.all(color: Colors.black)),
+                            width: 100,
+                            height: 100,
                           ),
-                          SizedBox(
-                            width: 25,
-                          ),
-                          Text(
-                            "Contact info",
-                            style: TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.w500),
-                          ),
-                          SizedBox(
-                            width: 50,
-                          ),
-                          Text(
-                            "Google",
-                            style: TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.w500),
-                          ),
-                        ],
+                          onTap: () {
+                            Navigator.pushNamed(context, "/resourceshare");
+                          },
+                        ),
                       ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 30.0, left: 30.0),
+                        child: InkWell(
+                          child: Container(
+                            alignment: Alignment.center,
+                            child: FaIcon(
+                              FontAwesomeIcons.phoneSquareAlt,
+                              size: 60,
+                            ),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                border: Border.all(color: Colors.black)),
+                            width: 100,
+                            height: 100,
+                          ),
+                          onTap: () {
+                            Navigator.pushNamed(context, "/contactinfo");
+                          },
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 30.0, left: 30.0),
+                        child: InkWell(
+                          child: Container(
+                            alignment: Alignment.center,
+                            child: FaIcon(
+                              FontAwesomeIcons.google,
+                              size: 60,
+                            ),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                border: Border.all(color: Colors.black)),
+                            width: 100,
+                            height: 100,
+                          ),
+                          onTap: () {
+                            Navigator.pushNamed(context, "/google");
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 12.0),
+                    child: Row(
+                      children: [
+                        Text(
+                          "Resource share",
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.w500),
+                        ),
+                        SizedBox(
+                          width: 25,
+                        ),
+                        Text(
+                          "Contact info",
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.w500),
+                        ),
+                        SizedBox(
+                          width: 50,
+                        ),
+                        Text(
+                          "Google",
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.w500),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               )
             ],
           ),
