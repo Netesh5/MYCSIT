@@ -60,7 +60,7 @@ class _HomepageState extends State<Homepage> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.only(top: 10, left: 20, right: 20),
+          padding: EdgeInsets.only(top: 10, left: 20, right: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -73,16 +73,13 @@ class _HomepageState extends State<Homepage> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 250),
-                child: Text("Good Afternoon ",
-                    style: GoogleFonts.notoSans(
-                      textStyle: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    )),
-              ),
+              Text("Good Afternoon ",
+                  style: GoogleFonts.notoSans(
+                    textStyle: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  )),
               SizedBox(
                 height: 10,
               ),
