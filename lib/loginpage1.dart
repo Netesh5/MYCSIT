@@ -72,6 +72,7 @@ class _LoginpageState extends State<Loginpage> {
                 padding:
                     const EdgeInsets.only(left: 30.0, right: 30.0, top: 10),
                 child: TextFormField(
+                  keyboardType: TextInputType.emailAddress,
                   validator: (value) {
                     if (value.isEmpty) {
                       return "Username cannot be empty";

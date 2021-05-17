@@ -32,6 +32,7 @@ dependencies:
   flutter_signin_button: ^2.0.0
   carousel_slider: ^2.3.1
   font_awesome_flutter: ^9.0.0
+  webview_flutter: ^2.0.4
 
 dev_dependencies:
   flutter_test:
