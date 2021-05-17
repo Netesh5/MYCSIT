@@ -11,6 +11,7 @@ class Mydrawer extends StatelessWidget {
           DrawerHeader(
             padding: EdgeInsets.zero,
             child: UserAccountsDrawerHeader(
+              margin: EdgeInsets.zero,
               accountName: Text("Elon Musk"),
               accountEmail: Text("elon.musk@dogecoin.com"),
               currentAccountPicture: CircleAvatar(
