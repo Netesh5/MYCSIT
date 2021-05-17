@@ -75,7 +75,7 @@ class _HomepageState extends State<Homepage> {
               ),
               Padding(
                 padding: const EdgeInsets.only(right: 250),
-                child: Text("Good Evening ",
+                child: Text("Good Afternoon ",
                     style: GoogleFonts.notoSans(
                       textStyle: TextStyle(
                         fontSize: 16,
