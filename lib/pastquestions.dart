@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 class Pastquestions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container( 
-      title: 'Past Questions',
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: Text('Past Questions'),
         ),
@@ -13,46 +11,43 @@ class Pastquestions extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              sem('First Semester'),
+              Sem('First Semester'),
               SizedBox(height: 8.0),
-              sem('Second Semester'),
+              Sem('Second Semester'),
               SizedBox(height: 8.0),
-              sem('Third Semester'),
+              Sem('Third Semester'),
               SizedBox(height: 8.0),
-              sem('Fourth Semester'),
+              Sem('Fourth Semester'),
               SizedBox(height: 8.0),
-              sem('Fifth Semester'),
+              Sem('Fifth Semester'),
               SizedBox(height: 8.0),
-              sem('Sixth Semester'),
+              Sem('Sixth Semester'),
               SizedBox(height: 8.0),
-              sem('Seventh Semester'),
+              Sem('Seventh Semester'),
               SizedBox(height: 8.0),
-              sem('Eighth Semester'),
+              Sem('Eighth Semester'),
               SizedBox(height: 8.0),
-              sem('Ninth Semester'),
+              Sem('Ninth Semester'),
               SizedBox(height: 8.0)
             ],
           ),
-        )
-      ) 
+        ));
+  }
+}
+
+class Sem extends StatelessWidget {
+  final String name;
+
+  Sem(this.name);
+
+  @override
+  Widget build(BuildContext context) {
+    return DecoratedBox(
+      decoration: BoxDecoration(color: Colors.amberAccent),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text(name),
+      ),
     );
   }
 }
- 
- class sem extends StatelessWidget{
-   final String name;
-
-   const sem(this.name);
-
-   @override 
-   widget build(BuildContext context){
-     return DecoratedBox(
-       decoration: BoxDecoration(color: Colors.amberAccent),
-       child: Padding(
-         padding: const EdgeInsets.all(8.0)
-         child: Text(name),
-       ),
-       );
-    }
- }
- 
