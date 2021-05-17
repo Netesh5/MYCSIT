@@ -172,7 +172,7 @@ class _HomepageState extends State<Homepage> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 30.0),
+                        padding: const EdgeInsets.only(left: 50.0),
                         child: InkWell(
                           child: Container(
                             alignment: Alignment.center,
@@ -264,7 +264,7 @@ class _HomepageState extends State<Homepage> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 30.0, left: 30.0),
+                        padding: const EdgeInsets.only(top: 30.0, left: 50.0),
                         child: InkWell(
                           child: Container(
                             alignment: Alignment.center,
