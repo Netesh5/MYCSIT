@@ -5,7 +5,14 @@ class Pastquestions extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Past Questions'),
+          title: Text(
+            'Past Questions',
+            style: TextStyle(color: Colors.black),
+          ),
+          backgroundColor: Colors.white,
+          iconTheme: IconThemeData(
+            color: Colors.black,
+          ),
         ),
         body: Center(
           child: Column(
