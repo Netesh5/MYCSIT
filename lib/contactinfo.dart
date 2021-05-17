@@ -12,12 +12,8 @@ class _ContactinfoState extends State<Contactinfo> {
       appBar: AppBar(
         title: Text(
           "Contact info",
-          style: TextStyle(color: Colors.black),
         ),
         backgroundColor: Colors.white,
-        iconTheme: IconThemeData(
-          color: Colors.black,
-        ),
       ),
     );
   }

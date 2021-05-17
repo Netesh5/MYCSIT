@@ -29,6 +29,9 @@ class Mydrawer extends StatelessWidget {
               ),
             ),
             ListTile(
+              onTap: () {
+                Navigator.pushNamed(context, "/homepage");
+              },
               leading: Icon(
                 Icons.home,
                 color: Colors.white,
@@ -40,6 +43,9 @@ class Mydrawer extends StatelessWidget {
               ),
             ),
             ListTile(
+              onTap: () {
+                Navigator.pushNamed(context, "/contactus");
+              },
               leading: Icon(
                 Icons.contact_mail,
                 color: Colors.white,
@@ -51,6 +57,9 @@ class Mydrawer extends StatelessWidget {
               ),
             ),
             ListTile(
+              onTap: () {
+                Navigator.pushNamed(context, "/feedback");
+              },
               leading: Icon(
                 Icons.feedback,
                 color: Colors.white,

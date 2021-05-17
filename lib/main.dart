@@ -1,3 +1,5 @@
+import 'package:MYCSIT/contactus.dart';
+import 'package:MYCSIT/feedback.dart';
 import 'package:MYCSIT/homepage.dart';
 import 'package:MYCSIT/loginpage2.dart';
 import 'package:MYCSIT/notes.dart';
@@ -19,6 +21,15 @@ class Myapp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        appBarTheme: AppBarTheme(
+          color: Colors.white,
+          iconTheme: IconThemeData(color: Colors.black),
+          textTheme: Theme.of(context).textTheme,
+          elevation: 0,
+        ),
+        iconTheme: IconThemeData(color: Colors.black),
+      ),
       routes: {
         "/": (context) => Loginpage(),
         "/homepage": (context) => Homepage(),
@@ -29,6 +40,8 @@ class Myapp extends StatelessWidget {
         "/resourceshare": (context) => Resourceshare(),
         "/contactinfo": (context) => Contactinfo(),
         "/google": (context) => Google(),
+        "/contactus": (context) => Contactus(),
+        "/feedback": (context) => FeedBack(),
       },
     );
   }
