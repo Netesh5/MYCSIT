@@ -23,6 +23,7 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         iconTheme: IconThemeData(
           color: Colors.black,
@@ -47,10 +48,6 @@ class _HomepageState extends State<Homepage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.notifications),
             label: "Notifications",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.feedback),
-            label: "Feedback",
           ),
         ],
         currentIndex: _selectedItem,

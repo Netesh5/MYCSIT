@@ -6,20 +6,63 @@ class Mydrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: ListView(
-        children: [
-          DrawerHeader(
-            padding: EdgeInsets.zero,
-            child: UserAccountsDrawerHeader(
-              margin: EdgeInsets.zero,
-              accountName: Text("Elon Musk"),
-              accountEmail: Text("elon.musk@dogecoin.com"),
-              currentAccountPicture: CircleAvatar(
-                backgroundImage: NetworkImage(image),
+      child: Container(
+        color: Colors.orangeAccent,
+        child: ListView(
+          children: [
+            DrawerHeader(
+              padding: EdgeInsets.zero,
+              child: UserAccountsDrawerHeader(
+                decoration: BoxDecoration(color: Colors.orangeAccent),
+                margin: EdgeInsets.zero,
+                accountName: Text(
+                  "Elon Musk",
+                  //style: TextStyle(color: Colors.black),
+                ),
+                accountEmail: Text(
+                  "elon.musk@dogecoin.com",
+                  // style: TextStyle(color: Colors.black),
+                ),
+                currentAccountPicture: CircleAvatar(
+                  backgroundImage: NetworkImage(image),
+                ),
               ),
             ),
-          ),
-        ],
+            ListTile(
+              leading: Icon(
+                Icons.home,
+                color: Colors.white,
+              ),
+              title: Text(
+                "Home",
+                textScaleFactor: 1.3,
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.contact_mail,
+                color: Colors.white,
+              ),
+              title: Text(
+                "Contact us",
+                textScaleFactor: 1.3,
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.feedback,
+                color: Colors.white,
+              ),
+              title: Text(
+                "Feedback",
+                textScaleFactor: 1.3,
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
