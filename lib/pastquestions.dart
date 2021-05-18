@@ -19,23 +19,21 @@ class Pastquestions extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Sem('First Semester'),
-              SizedBox(height: 8.0),
+              SizedBox(height: 10.0),
               Sem('Second Semester'),
-              SizedBox(height: 8.0),
+              SizedBox(height: 10.0),
               Sem('Third Semester'),
-              SizedBox(height: 8.0),
+              SizedBox(height: 10.0),
               Sem('Fourth Semester'),
-              SizedBox(height: 8.0),
+              SizedBox(height: 10.0),
               Sem('Fifth Semester'),
-              SizedBox(height: 8.0),
+              SizedBox(height: 10.0),
               Sem('Sixth Semester'),
-              SizedBox(height: 8.0),
+              SizedBox(height: 10.0),
               Sem('Seventh Semester'),
-              SizedBox(height: 8.0),
+              SizedBox(height: 10.0),
               Sem('Eighth Semester'),
-              SizedBox(height: 8.0),
-              Sem('Ninth Semester'),
-              SizedBox(height: 8.0)
+              SizedBox(height: 10.0),
             ],
           ),
         ));
@@ -50,9 +48,9 @@ class Sem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(color: Colors.amberAccent),
+      decoration: BoxDecoration(color: Colors.deepOrange),
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.only(top: 10),
         child: Text(name),
       ),
     );

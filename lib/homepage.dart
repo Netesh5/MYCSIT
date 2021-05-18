@@ -54,7 +54,7 @@ class _HomepageState extends State<Homepage> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.only(top: 10, left: 20, right: 10),
+          padding: EdgeInsets.only(top: 10, left: 10, right: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
