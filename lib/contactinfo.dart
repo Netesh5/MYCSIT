@@ -95,6 +95,9 @@ Widget teacher(BuildContext context) {
               launch(teachersdetail[index]["phoneno"]);
             },
           ),
+          onLongPress: () {
+            popUpContainer(context);
+          },
         ),
         shape: StadiumBorder(),
       );
@@ -128,6 +131,25 @@ Widget student(BuildContext context) {
             ),
           ),
           shape: StadiumBorder(),
+        );
+      });
+}
+
+popUpContainer(BuildContext context) {
+  return showDialog(
+      context: context,
+      builder: (context) {
+        return Center(
+          child: Material(
+            child: Container(
+              width: 100,
+              height: 100,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12.0),
+                color: Colors.white,
+              ),
+            ),
+          ),
         );
       });
 }
