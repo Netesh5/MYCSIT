@@ -1,3 +1,4 @@
+import 'package:MYCSIT/studentsdetail.dart';
 import 'package:MYCSIT/teachersdetail.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -63,7 +64,7 @@ class _ContactinfoState extends State<Contactinfo> {
           body: TabBarView(
             children: [
               teacher(context),
-              student(),
+              student(context),
             ],
           )),
     );
@@ -74,6 +75,8 @@ Widget teacher(BuildContext context) {
   return ListView.builder(
     itemCount: teachersdetail.length,
     itemBuilder: (context, index) {
+      teachersdetail
+          .sort((a, b) => a["name"].compareTo(b["name"])); //for sorting
       return Card(
         margin: EdgeInsets.only(top: 10, bottom: 10),
         child: ListTile(
@@ -99,23 +102,32 @@ Widget teacher(BuildContext context) {
   );
 }
 
-Widget student() {
-  return ListView(
-    children: [
-      Card(
-          margin: EdgeInsets.only(top: 10, bottom: 20),
+Widget student(BuildContext context) {
+  return ListView.builder(
+      itemCount: studentdetails.length,
+      itemBuilder: (context, index) {
+        studentdetails
+            .sort((a, b) => a["name"].compareTo(b["name"])); //for sorting
+        return Card(
+          margin: EdgeInsets.only(top: 10, bottom: 10),
           child: ListTile(
-            title: Text(
-              "Mr.ram",
-              style: TextStyle(fontSize: 22),
+            title: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Text(
+                studentdetails[index]["name"],
+                style: TextStyle(fontSize: 20),
+              ),
             ),
-            trailing: Icon(
-              Icons.call,
-              size: 30,
+            trailing: IconButton(
+              icon: Icon(Icons.call),
+              iconSize: 30,
               color: Colors.black,
+              onPressed: () {
+                launch(studentdetails[index]["phoneno"]);
+              },
             ),
           ),
-          shape: StadiumBorder())
-    ],
-  );
+          shape: StadiumBorder(),
+        );
+      });
 }

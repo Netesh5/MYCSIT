@@ -14,7 +14,7 @@ var teachersdetail = [
   {
     "name": "Mohan Bhandari",
     "address": "bhalwari",
-    "phoneno": "tel:9867838664",
+    "phoneno": "tel:9847077860",
     "desp": " adfadfadf"
   },
   {
