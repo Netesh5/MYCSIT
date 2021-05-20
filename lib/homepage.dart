@@ -12,7 +12,18 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-  var name = "Nitesh";
+  var name = "Elon";
+  String greeting() {
+    var hour = DateTime.now().hour;
+    if (hour < 12) {
+      return 'Good Morning';
+    }
+    if (hour < 17) {
+      return 'Good Afternoon';
+    }
+    return 'Good Evening';
+  }
+
   int _selectedItem = 0;
   void _ontap(int index) {
     setState(() {
@@ -67,7 +78,7 @@ class _HomepageState extends State<Homepage> {
                   ),
                 ),
               ),
-              Text("Good Afternoon ",
+              Text(greeting(),
                   style: GoogleFonts.notoSans(
                     textStyle: TextStyle(
                       fontSize: 16,
