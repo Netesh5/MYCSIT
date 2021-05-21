@@ -131,6 +131,9 @@ Widget student(BuildContext context) {
                 launch(studentdetails[index]["phoneno"]);
               },
             ),
+            onLongPress: () {
+              popUpContainerstudent(context, index);
+            },
           ),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
@@ -174,7 +177,7 @@ popUpContainer(BuildContext context, index) {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          Icons.location_on,
+                          Icons.location_on_outlined,
                         ),
                         SizedBox(
                           width: 10,
@@ -188,7 +191,7 @@ popUpContainer(BuildContext context, index) {
                       children: [
                         InkWell(
                           child: FaIcon(
-                            FontAwesomeIcons.mailBulk,
+                            FontAwesomeIcons.envelope,
                             size: 30,
                           ),
                           onTap: () {},
@@ -214,6 +217,95 @@ popUpContainer(BuildContext context, index) {
                   ],
                 ),
               ),
+              borderRadius: BorderRadius.circular(30),
+            ),
+          ),
+        );
+      });
+}
+
+popUpContainerstudent(BuildContext context, index) {
+  double width = MediaQuery.of(context).size.width * 0.8;
+  double height = MediaQuery.of(context).size.height * 0.55;
+  return showDialog(
+      context: context,
+      builder: (context) {
+        return Center(
+          child: SingleChildScrollView(
+            child: Material(
+              child: Container(
+                  width: width,
+                  height: height,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      ClipRRect(
+                        child: Image.asset("assets/images/elon.jpg"),
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        studentdetails[index]["name"],
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.w500),
+                      ),
+                      SizedBox(height: 10),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.phone_android,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(studentdetails[index]["phoneno"]),
+                        ],
+                      ),
+                      SizedBox(height: 10),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.location_on_outlined,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(studentdetails[index]["address"]),
+                        ],
+                      ),
+                      SizedBox(height: 10),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          InkWell(
+                            child: FaIcon(
+                              FontAwesomeIcons.envelope,
+                              size: 30,
+                            ),
+                            onTap: () {},
+                          ),
+                          SizedBox(width: 20),
+                          InkWell(
+                            child: FaIcon(
+                              FontAwesomeIcons.facebook,
+                              size: 30,
+                            ),
+                            onTap: () {},
+                          ),
+                          SizedBox(width: 20),
+                          InkWell(
+                            child: FaIcon(
+                              FontAwesomeIcons.instagram,
+                              size: 30,
+                            ),
+                            onTap: () {},
+                          ),
+                        ],
+                      ),
+                    ],
+                  )),
               borderRadius: BorderRadius.circular(30),
             ),
           ),
