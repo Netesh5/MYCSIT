@@ -187,7 +187,13 @@ Widget firstsem(BuildContext context) {
     "IIT",
     "Digital Logics"
   ];
-  List colorlist = [""];
+  List colorlist = [
+    0xFFBB6835,
+    0xFF5256F,
+    0xFF6E738F,
+    0xFF89D9ED,
+    0xFFE5B06C,
+  ];
   return ListView.builder(
       itemCount: subjectItem.length,
       itemBuilder: (context, index) {
@@ -198,7 +204,10 @@ Widget firstsem(BuildContext context) {
               title: Center(
                   child: Text(
                 subjectItem[index],
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white),
               )),
             ),
             shape: RoundedRectangleBorder(
@@ -206,7 +215,7 @@ Widget firstsem(BuildContext context) {
             ),
             margin: EdgeInsets.only(left: 30, right: 30, bottom: 5, top: 20),
             elevation: 2,
-            color: Colors.deepPurple,
+            color: Color(colorlist[index]),
           ),
         );
       });
@@ -220,6 +229,13 @@ Widget secondsem(BuildContext context) {
     "Mathematics II",
     "Statistics I"
   ];
+  List colorlist = [
+    0xFFBB6835,
+    0xFF5256F,
+    0xFF6E738F,
+    0xFF89D9ED,
+    0xFFE5B06C,
+  ];
   return ListView.builder(
       itemCount: subjectItem.length,
       itemBuilder: (context, index) {
@@ -230,7 +246,10 @@ Widget secondsem(BuildContext context) {
               title: Center(
                   child: Text(
                 subjectItem[index],
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white),
               )),
             ),
             shape: RoundedRectangleBorder(
@@ -238,6 +257,7 @@ Widget secondsem(BuildContext context) {
             ),
             margin: EdgeInsets.only(left: 30, right: 30, bottom: 5, top: 20),
             elevation: 2,
+            color: Color(colorlist[index]),
           ),
         );
       });
@@ -251,6 +271,13 @@ Widget thirdsem(BuildContext context) {
     "Computer Graphics",
     "Statistics II"
   ];
+  List colorlist = [
+    0xFFBB6835,
+    0xFF5256F,
+    0xFF6E738F,
+    0xFF89D9ED,
+    0xFFE5B06C,
+  ];
   return ListView.builder(
       itemCount: subjectItem.length,
       itemBuilder: (context, index) {
@@ -261,7 +288,10 @@ Widget thirdsem(BuildContext context) {
               title: Center(
                   child: Text(
                 subjectItem[index],
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white),
               )),
             ),
             shape: RoundedRectangleBorder(
@@ -269,6 +299,7 @@ Widget thirdsem(BuildContext context) {
             ),
             margin: EdgeInsets.only(left: 30, right: 30, bottom: 5, top: 20),
             elevation: 2,
+            color: Color(colorlist[index]),
           ),
         );
       });
@@ -282,6 +313,13 @@ Widget fourthsem(BuildContext context) {
     "Database Management System",
     "Artifical Intelligence"
   ];
+  List colorlist = [
+    0xFFBB6835,
+    0xFF5256F,
+    0xFF6E738F,
+    0xFF89D9ED,
+    0xFFE5B06C,
+  ];
   return ListView.builder(
       itemCount: subjectItem.length,
       itemBuilder: (context, index) {
@@ -292,7 +330,10 @@ Widget fourthsem(BuildContext context) {
               title: Center(
                   child: Text(
                 subjectItem[index],
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white),
               )),
             ),
             shape: RoundedRectangleBorder(
@@ -300,6 +341,7 @@ Widget fourthsem(BuildContext context) {
             ),
             margin: EdgeInsets.only(left: 30, right: 30, bottom: 5, top: 20),
             elevation: 2,
+            color: Color(colorlist[index]),
           ),
         );
       });
@@ -313,6 +355,13 @@ Widget fifthsem(BuildContext context) {
     "Simulation and Modeling",
     "Web Technology"
   ];
+  List colorlist = [
+    0xFFBB6835,
+    0xFF5256F,
+    0xFF6E738F,
+    0xFF89D9ED,
+    0xFFE5B06C,
+  ];
   return ListView.builder(
       itemCount: subjectItem.length,
       itemBuilder: (context, index) {
@@ -323,7 +372,10 @@ Widget fifthsem(BuildContext context) {
               title: Center(
                   child: Text(
                 subjectItem[index],
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white),
               )),
             ),
             shape: RoundedRectangleBorder(
@@ -331,6 +383,7 @@ Widget fifthsem(BuildContext context) {
             ),
             margin: EdgeInsets.only(left: 30, right: 30, bottom: 5, top: 20),
             elevation: 2,
+            color: Color(colorlist[index]),
           ),
         );
       });
@@ -344,6 +397,13 @@ Widget sixthsem(BuildContext context) {
     "NET Centric Computing",
     "Technical Writing"
   ];
+  List colorlist = [
+    0xFFBB6835,
+    0xFF5256F,
+    0xFF6E738F,
+    0xFF89D9ED,
+    0xFFE5B06C,
+  ];
   return ListView.builder(
       itemCount: subjectItem.length,
       itemBuilder: (context, index) {
@@ -354,7 +414,10 @@ Widget sixthsem(BuildContext context) {
               title: Center(
                   child: Text(
                 subjectItem[index],
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white),
               )),
             ),
             shape: RoundedRectangleBorder(
@@ -362,6 +425,7 @@ Widget sixthsem(BuildContext context) {
             ),
             margin: EdgeInsets.only(left: 30, right: 30, bottom: 5, top: 20),
             elevation: 2,
+            color: Color(colorlist[index]),
           ),
         );
       });
@@ -373,32 +437,10 @@ Widget seventhsem(BuildContext context) {
     "Data Warehouse and Data Mining",
     "Principles of Management",
   ];
-  return ListView.builder(
-      itemCount: subjectItem.length,
-      itemBuilder: (context, index) {
-        return Container(
-          height: 150,
-          child: Card(
-            child: ListTile(
-              title: Center(
-                  child: Text(
-                subjectItem[index],
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-              )),
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(30),
-            ),
-            margin: EdgeInsets.only(left: 30, right: 30, bottom: 5, top: 20),
-            elevation: 2,
-          ),
-        );
-      });
-}
-
-Widget eightsem(BuildContext context) {
-  List subjectItem = [
-    "Advance Database",
+  List colorlist = [
+    0xFFBB6835,
+    0xFF6E738F,
+    0xFFE5B06C,
   ];
   return ListView.builder(
       itemCount: subjectItem.length,
@@ -410,7 +452,10 @@ Widget eightsem(BuildContext context) {
               title: Center(
                   child: Text(
                 subjectItem[index],
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white),
               )),
             ),
             shape: RoundedRectangleBorder(
@@ -418,6 +463,41 @@ Widget eightsem(BuildContext context) {
             ),
             margin: EdgeInsets.only(left: 30, right: 30, bottom: 5, top: 20),
             elevation: 2,
+            color: Color(colorlist[index]),
+          ),
+        );
+      });
+}
+
+Widget eightsem(BuildContext context) {
+  List subjectItem = [
+    "Advance Database",
+  ];
+  List colorlist = [
+    0xFFBB6835,
+  ];
+  return ListView.builder(
+      itemCount: subjectItem.length,
+      itemBuilder: (context, index) {
+        return Container(
+          height: 150,
+          child: Card(
+            child: ListTile(
+              title: Center(
+                  child: Text(
+                subjectItem[index],
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white),
+              )),
+            ),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30),
+            ),
+            margin: EdgeInsets.only(left: 30, right: 30, bottom: 5, top: 20),
+            elevation: 2,
+            color: Color(colorlist[index]),
           ),
         );
       });
