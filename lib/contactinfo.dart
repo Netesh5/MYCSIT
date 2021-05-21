@@ -1,5 +1,7 @@
+import 'package:MYCSIT/studentsdetail.dart';
 import 'package:MYCSIT/teachersdetail.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Contactinfo extends StatefulWidget {
@@ -63,7 +65,7 @@ class _ContactinfoState extends State<Contactinfo> {
           body: TabBarView(
             children: [
               teacher(context),
-              student(),
+              student(context),
             ],
           )),
     );
@@ -74,8 +76,10 @@ Widget teacher(BuildContext context) {
   return ListView.builder(
     itemCount: teachersdetail.length,
     itemBuilder: (context, index) {
+      teachersdetail
+          .sort((a, b) => a["name"].compareTo(b["name"])); //for sorting
       return Card(
-        margin: EdgeInsets.only(top: 10, bottom: 10),
+        margin: EdgeInsets.only(top: 7, bottom: 7),
         child: ListTile(
           title: Padding(
             padding: const EdgeInsets.all(10.0),
@@ -92,30 +96,219 @@ Widget teacher(BuildContext context) {
               launch(teachersdetail[index]["phoneno"]);
             },
           ),
+          onLongPress: () {
+            popUpContainer(context, index);
+          },
         ),
-        shape: StadiumBorder(),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        elevation: 2,
       );
     },
   );
 }
 
-Widget student() {
-  return ListView(
-    children: [
-      Card(
-          margin: EdgeInsets.only(top: 10, bottom: 20),
+Widget student(BuildContext context) {
+  return ListView.builder(
+      itemCount: studentdetails.length,
+      itemBuilder: (context, index) {
+        studentdetails
+            .sort((a, b) => a["name"].compareTo(b["name"])); //for sorting
+        return Card(
+          margin: EdgeInsets.only(top: 7, bottom: 7),
           child: ListTile(
-            title: Text(
-              "Mr.ram",
-              style: TextStyle(fontSize: 22),
+            title: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Text(
+                studentdetails[index]["name"],
+                style: TextStyle(fontSize: 20),
+              ),
             ),
-            trailing: Icon(
-              Icons.call,
-              size: 30,
+            trailing: IconButton(
+              icon: Icon(Icons.call),
+              iconSize: 30,
               color: Colors.black,
+              onPressed: () {
+                launch(studentdetails[index]["phoneno"]);
+              },
+            ),
+            onLongPress: () {
+              popUpContainerstudent(context, index);
+            },
+          ),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          elevation: 2,
+        );
+      });
+}
+
+popUpContainer(BuildContext context, index) {
+  double width = MediaQuery.of(context).size.width * 0.8;
+  double height = MediaQuery.of(context).size.height * 0.55;
+  return showDialog(
+      context: context,
+      builder: (context) {
+        return Center(
+          child: SingleChildScrollView(
+            child: Material(
+              child: Container(
+                width: width,
+                height: height,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    ClipRRect(
+                      child: Image.asset("assets/images/elon.jpg"),
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    SizedBox(height: 10),
+                    Text(
+                      teachersdetail[index]["name"],
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                    ),
+                    SizedBox(height: 5),
+                    Text(
+                      teachersdetail[index]["desp"],
+                      style: TextStyle(fontSize: 15),
+                    ),
+                    SizedBox(height: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.location_on_outlined,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(teachersdetail[index]["address"]),
+                      ],
+                    ),
+                    SizedBox(height: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        InkWell(
+                          child: FaIcon(
+                            FontAwesomeIcons.envelope,
+                            size: 30,
+                          ),
+                          onTap: () {},
+                        ),
+                        SizedBox(width: 20),
+                        InkWell(
+                          child: FaIcon(
+                            FontAwesomeIcons.facebook,
+                            size: 30,
+                          ),
+                          onTap: () {},
+                        ),
+                        SizedBox(width: 20),
+                        InkWell(
+                          child: FaIcon(
+                            FontAwesomeIcons.instagram,
+                            size: 30,
+                          ),
+                          onTap: () {},
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              borderRadius: BorderRadius.circular(30),
             ),
           ),
-          shape: StadiumBorder())
-    ],
-  );
+        );
+      });
+}
+
+popUpContainerstudent(BuildContext context, index) {
+  double width = MediaQuery.of(context).size.width * 0.8;
+  double height = MediaQuery.of(context).size.height * 0.55;
+  return showDialog(
+      context: context,
+      builder: (context) {
+        return Center(
+          child: SingleChildScrollView(
+            child: Material(
+              child: Container(
+                  width: width,
+                  height: height,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      ClipRRect(
+                        child: Image.asset("assets/images/elon.jpg"),
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        studentdetails[index]["name"],
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.w500),
+                      ),
+                      SizedBox(height: 10),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.phone_android,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(studentdetails[index]["phoneno"]),
+                        ],
+                      ),
+                      SizedBox(height: 10),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.location_on_outlined,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(studentdetails[index]["address"]),
+                        ],
+                      ),
+                      SizedBox(height: 10),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          InkWell(
+                            child: FaIcon(
+                              FontAwesomeIcons.envelope,
+                              size: 30,
+                            ),
+                            onTap: () {},
+                          ),
+                          SizedBox(width: 20),
+                          InkWell(
+                            child: FaIcon(
+                              FontAwesomeIcons.facebook,
+                              size: 30,
+                            ),
+                            onTap: () {},
+                          ),
+                          SizedBox(width: 20),
+                          InkWell(
+                            child: FaIcon(
+                              FontAwesomeIcons.instagram,
+                              size: 30,
+                            ),
+                            onTap: () {},
+                          ),
+                        ],
+                      ),
+                    ],
+                  )),
+              borderRadius: BorderRadius.circular(30),
+            ),
+          ),
+        );
+      });
 }

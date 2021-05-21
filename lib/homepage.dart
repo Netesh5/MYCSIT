@@ -135,6 +135,7 @@ class _HomepageState extends State<Homepage> {
               Column(
                 children: [
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       InkWell(
                         child: Column(
@@ -222,6 +223,7 @@ class _HomepageState extends State<Homepage> {
                     ],
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(top: 30.0),

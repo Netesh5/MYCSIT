@@ -3,19 +3,19 @@ var teachersdetail = [
     "name": "Madhav Bhatta",
     "address": "bhalwari",
     "phoneno": "tel:9867838664",
-    "desp": " adfadfadf"
+    "desp": "CEO of SpaceX and Tesla"
   },
   {
     "name": "Surendra Pathak",
     "address": "bhalwari",
     "phoneno": "tel:9867838664",
-    "desp": " adfadfadf"
+    "desp": " CEO of SpaceX and Tesla"
   },
   {
     "name": "Mohan Bhandari",
     "address": "bhalwari",
-    "phoneno": "tel:9867838664",
-    "desp": " adfadfadf"
+    "phoneno": "tel:9847077860",
+    "desp": "CEO of SpaceX and Tesla"
   },
   {
     "name": "Sudip Raj Khadka",
