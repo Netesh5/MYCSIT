@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class Secondsem extends StatelessWidget {
+class Thirdsem extends StatelessWidget {
   final List subjectItem;
   final int index;
-  Secondsem(this.subjectItem, this.index);
+  Thirdsem(this.subjectItem, this.index);
   @override
   Widget build(BuildContext context) {
     return Scaffold(

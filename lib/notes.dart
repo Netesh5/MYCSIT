@@ -1,3 +1,11 @@
+import 'package:MYCSIT/notes/eightsem.dart';
+import 'package:MYCSIT/notes/fifthsem.dart';
+import 'package:MYCSIT/notes/firstsem.dart';
+import 'package:MYCSIT/notes/fourthsem.dart';
+import 'package:MYCSIT/notes/secondsem.dart';
+import 'package:MYCSIT/notes/seventhsem.dart';
+import 'package:MYCSIT/notes/sixthsem.dart';
+import 'package:MYCSIT/notes/thirdsem.dart';
 import 'package:flutter/material.dart';
 
 class Notes extends StatefulWidget {
@@ -188,11 +196,11 @@ Widget firstsem(BuildContext context) {
     "Digital Logics"
   ];
   List colorlist = [
-    0xFFBB6835,
-    0xFF5256F,
+    0xFF158EBF,
+    0xFFBF5A43,
     0xFF6E738F,
-    0xFF89D9ED,
-    0xFFE5B06C,
+    0xFF01B4BB,
+    0xFF52586F,
   ];
   return ListView.builder(
       itemCount: subjectItem.length,
@@ -200,23 +208,30 @@ Widget firstsem(BuildContext context) {
         return Container(
           height: 150,
           child: Card(
-            child: ListTile(
-              title: Center(
-                  child: Text(
-                subjectItem[index],
-                style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white),
-              )),
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(30),
-            ),
-            margin: EdgeInsets.only(left: 30, right: 30, bottom: 5, top: 20),
-            elevation: 2,
-            color: Color(colorlist[index]),
-          ),
+              child: ListTile(
+                title: Center(
+                    child: Text(
+                  subjectItem[index],
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white),
+                )),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Firstsem(subjectItem, index),
+                      ));
+                },
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30),
+              ),
+              margin: EdgeInsets.only(left: 30, right: 30, bottom: 5, top: 20),
+              elevation: 10,
+              color: Color(colorlist[index]),
+              shadowColor: Color(colorlist[index])),
         );
       });
 }
@@ -230,11 +245,11 @@ Widget secondsem(BuildContext context) {
     "Statistics I"
   ];
   List colorlist = [
-    0xFFBB6835,
-    0xFF5256F,
+    0xFF158EBF,
+    0xFFBF5A43,
     0xFF6E738F,
-    0xFF89D9ED,
-    0xFFE5B06C,
+    0xFF01B4BB,
+    0xFF52586F,
   ];
   return ListView.builder(
       itemCount: subjectItem.length,
@@ -242,23 +257,29 @@ Widget secondsem(BuildContext context) {
         return Container(
           height: 150,
           child: Card(
-            child: ListTile(
-              title: Center(
-                  child: Text(
-                subjectItem[index],
-                style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white),
-              )),
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(30),
-            ),
-            margin: EdgeInsets.only(left: 30, right: 30, bottom: 5, top: 20),
-            elevation: 2,
-            color: Color(colorlist[index]),
-          ),
+              child: ListTile(
+                title: Center(
+                    child: Text(
+                  subjectItem[index],
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white),
+                )),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Secondsem(subjectItem, index)));
+                },
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30),
+              ),
+              margin: EdgeInsets.only(left: 30, right: 30, bottom: 5, top: 20),
+              elevation: 10,
+              color: Color(colorlist[index]),
+              shadowColor: Color(colorlist[index])),
         );
       });
 }
@@ -272,11 +293,11 @@ Widget thirdsem(BuildContext context) {
     "Statistics II"
   ];
   List colorlist = [
-    0xFFBB6835,
-    0xFF5256F,
+    0xFF158EBF,
+    0xFFBF5A43,
     0xFF6E738F,
-    0xFF89D9ED,
-    0xFFE5B06C,
+    0xFF01B4BB,
+    0xFF52586F,
   ];
   return ListView.builder(
       itemCount: subjectItem.length,
@@ -284,23 +305,29 @@ Widget thirdsem(BuildContext context) {
         return Container(
           height: 150,
           child: Card(
-            child: ListTile(
-              title: Center(
-                  child: Text(
-                subjectItem[index],
-                style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white),
-              )),
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(30),
-            ),
-            margin: EdgeInsets.only(left: 30, right: 30, bottom: 5, top: 20),
-            elevation: 2,
-            color: Color(colorlist[index]),
-          ),
+              child: ListTile(
+                title: Center(
+                    child: Text(
+                  subjectItem[index],
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white),
+                )),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Thirdsem(subjectItem, index)));
+                },
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30),
+              ),
+              margin: EdgeInsets.only(left: 30, right: 30, bottom: 5, top: 20),
+              elevation: 10,
+              color: Color(colorlist[index]),
+              shadowColor: Color(colorlist[index])),
         );
       });
 }
@@ -314,11 +341,11 @@ Widget fourthsem(BuildContext context) {
     "Artifical Intelligence"
   ];
   List colorlist = [
-    0xFFBB6835,
-    0xFF5256F,
+    0xFF158EBF,
+    0xFFBF5A43,
     0xFF6E738F,
-    0xFF89D9ED,
-    0xFFE5B06C,
+    0xFF01B4BB,
+    0xFF52586F,
   ];
   return ListView.builder(
       itemCount: subjectItem.length,
@@ -326,23 +353,29 @@ Widget fourthsem(BuildContext context) {
         return Container(
           height: 150,
           child: Card(
-            child: ListTile(
-              title: Center(
-                  child: Text(
-                subjectItem[index],
-                style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white),
-              )),
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(30),
-            ),
-            margin: EdgeInsets.only(left: 30, right: 30, bottom: 5, top: 20),
-            elevation: 2,
-            color: Color(colorlist[index]),
-          ),
+              child: ListTile(
+                title: Center(
+                    child: Text(
+                  subjectItem[index],
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white),
+                )),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Fourthsem(subjectItem, index)));
+                },
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30),
+              ),
+              margin: EdgeInsets.only(left: 30, right: 30, bottom: 5, top: 20),
+              elevation: 10,
+              color: Color(colorlist[index]),
+              shadowColor: Color(colorlist[index])),
         );
       });
 }
@@ -356,11 +389,11 @@ Widget fifthsem(BuildContext context) {
     "Web Technology"
   ];
   List colorlist = [
-    0xFFBB6835,
-    0xFF5256F,
+    0xFF158EBF,
+    0xFFBF5A43,
     0xFF6E738F,
-    0xFF89D9ED,
-    0xFFE5B06C,
+    0xFF01B4BB,
+    0xFF52586F,
   ];
   return ListView.builder(
       itemCount: subjectItem.length,
@@ -368,23 +401,29 @@ Widget fifthsem(BuildContext context) {
         return Container(
           height: 150,
           child: Card(
-            child: ListTile(
-              title: Center(
-                  child: Text(
-                subjectItem[index],
-                style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white),
-              )),
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(30),
-            ),
-            margin: EdgeInsets.only(left: 30, right: 30, bottom: 5, top: 20),
-            elevation: 2,
-            color: Color(colorlist[index]),
-          ),
+              child: ListTile(
+                title: Center(
+                    child: Text(
+                  subjectItem[index],
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white),
+                )),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Fifthsem(subjectItem, index)));
+                },
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30),
+              ),
+              margin: EdgeInsets.only(left: 30, right: 30, bottom: 5, top: 20),
+              elevation: 10,
+              color: Color(colorlist[index]),
+              shadowColor: Color(colorlist[index])),
         );
       });
 }
@@ -398,11 +437,11 @@ Widget sixthsem(BuildContext context) {
     "Technical Writing"
   ];
   List colorlist = [
-    0xFFBB6835,
-    0xFF5256F,
+    0xFF158EBF,
+    0xFFBF5A43,
     0xFF6E738F,
-    0xFF89D9ED,
-    0xFFE5B06C,
+    0xFF01B4BB,
+    0xFF52586F,
   ];
   return ListView.builder(
       itemCount: subjectItem.length,
@@ -410,23 +449,29 @@ Widget sixthsem(BuildContext context) {
         return Container(
           height: 150,
           child: Card(
-            child: ListTile(
-              title: Center(
-                  child: Text(
-                subjectItem[index],
-                style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white),
-              )),
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(30),
-            ),
-            margin: EdgeInsets.only(left: 30, right: 30, bottom: 5, top: 20),
-            elevation: 2,
-            color: Color(colorlist[index]),
-          ),
+              child: ListTile(
+                title: Center(
+                    child: Text(
+                  subjectItem[index],
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white),
+                )),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Sixthsem(subjectItem, index)));
+                },
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30),
+              ),
+              margin: EdgeInsets.only(left: 30, right: 30, bottom: 5, top: 20),
+              elevation: 10,
+              color: Color(colorlist[index]),
+              shadowColor: Color(colorlist[index])),
         );
       });
 }
@@ -438,9 +483,9 @@ Widget seventhsem(BuildContext context) {
     "Principles of Management",
   ];
   List colorlist = [
-    0xFFBB6835,
+    0xFF158EBF,
+    0xFFBF5A43,
     0xFF6E738F,
-    0xFFE5B06C,
   ];
   return ListView.builder(
       itemCount: subjectItem.length,
@@ -448,23 +493,30 @@ Widget seventhsem(BuildContext context) {
         return Container(
           height: 150,
           child: Card(
-            child: ListTile(
-              title: Center(
-                  child: Text(
-                subjectItem[index],
-                style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white),
-              )),
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(30),
-            ),
-            margin: EdgeInsets.only(left: 30, right: 30, bottom: 5, top: 20),
-            elevation: 2,
-            color: Color(colorlist[index]),
-          ),
+              child: ListTile(
+                title: Center(
+                    child: Text(
+                  subjectItem[index],
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white),
+                )),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              Seventhsem(subjectItem, index)));
+                },
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30),
+              ),
+              margin: EdgeInsets.only(left: 30, right: 30, bottom: 5, top: 20),
+              elevation: 10,
+              color: Color(colorlist[index]),
+              shadowColor: Color(colorlist[index])),
         );
       });
 }
@@ -474,7 +526,7 @@ Widget eightsem(BuildContext context) {
     "Advance Database",
   ];
   List colorlist = [
-    0xFFBB6835,
+    0xFF158EBF,
   ];
   return ListView.builder(
       itemCount: subjectItem.length,
@@ -482,23 +534,29 @@ Widget eightsem(BuildContext context) {
         return Container(
           height: 150,
           child: Card(
-            child: ListTile(
-              title: Center(
-                  child: Text(
-                subjectItem[index],
-                style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white),
-              )),
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(30),
-            ),
-            margin: EdgeInsets.only(left: 30, right: 30, bottom: 5, top: 20),
-            elevation: 2,
-            color: Color(colorlist[index]),
-          ),
+              child: ListTile(
+                title: Center(
+                    child: Text(
+                  subjectItem[index],
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white),
+                )),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Eighthsem(subjectItem, index)));
+                },
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30),
+              ),
+              margin: EdgeInsets.only(left: 30, right: 30, bottom: 5, top: 20),
+              elevation: 10,
+              color: Color(colorlist[index]),
+              shadowColor: Color(colorlist[index])),
         );
       });
 }
