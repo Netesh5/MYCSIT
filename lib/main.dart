@@ -3,6 +3,7 @@ import 'package:MYCSIT/feedback.dart';
 import 'package:MYCSIT/homepage.dart';
 import 'package:MYCSIT/loginpage2.dart';
 import 'package:MYCSIT/notes.dart';
+import 'package:MYCSIT/notes/firstsem.dart';
 import 'package:MYCSIT/noticeboard.dart';
 import 'package:flutter/material.dart';
 import 'loginpage1.dart';
