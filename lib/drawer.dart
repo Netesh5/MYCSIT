@@ -70,6 +70,22 @@ class Mydrawer extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
             ),
+            ListTile(
+              onTap: () {
+                Navigator.canPop(context)
+                    ? Navigator.pushNamed(context, "/")
+                    : null;
+              },
+              leading: Icon(
+                Icons.logout,
+                color: Colors.white,
+              ),
+              title: Text(
+                "Log out",
+                textScaleFactor: 1.3,
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
           ],
         ),
       ),

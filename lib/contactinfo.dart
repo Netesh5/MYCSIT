@@ -85,7 +85,9 @@ Widget teacher(BuildContext context) {
             padding: const EdgeInsets.all(10.0),
             child: Text(
               teachersdetail[index]["name"],
-              style: TextStyle(fontSize: 20),
+              style: TextStyle(
+                fontSize: 20,
+              ),
             ),
           ),
           trailing: IconButton(
