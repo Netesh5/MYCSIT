@@ -1,3 +1,4 @@
+import 'package:MYCSIT/Userstate.dart';
 import 'package:MYCSIT/contactus.dart';
 import 'package:MYCSIT/feedback.dart';
 import 'package:MYCSIT/homepage.dart';
@@ -53,7 +54,8 @@ class _MyappState extends State<Myapp> {
               iconTheme: IconThemeData(color: Colors.black),
             ),
             routes: {
-              "/": (context) => Loginpage(),
+              "/": (context) => Userstate(),
+              "/loginpage1": (context) => Loginpage(),
               "/homepage": (context) => Homepage(),
               "/loginpage2": (context) => Loginpage2(),
               "/noticeboard": (context) => Noticeboard(),

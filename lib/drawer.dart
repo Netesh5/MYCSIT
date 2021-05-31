@@ -1,6 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 class Mydrawer extends StatelessWidget {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   final image =
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVTFpsgcrxvZ2t6P4PCWdVpiQlp_HxMunNzw&usqp=CAU";
   @override
@@ -72,9 +75,7 @@ class Mydrawer extends StatelessWidget {
             ),
             ListTile(
               onTap: () {
-                Navigator.canPop(context)
-                    ? Navigator.pushNamed(context, "/")
-                    : null;
+                _auth.signOut();
               },
               leading: Icon(
                 Icons.logout,

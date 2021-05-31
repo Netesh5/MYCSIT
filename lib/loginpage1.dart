@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:MYCSIT/dialogbox.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,15 +16,31 @@ class _LoginpageState extends State<Loginpage> {
   String password = "";
   bool _obscuretext = true;
   final _formkey = GlobalKey<FormState>();
-  final FirebaseAuth auth = FirebaseAuth.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  bool _isLoading = false;
+  autherrorDialog _autherrorDialog = autherrorDialog();
 
-  void _validate() {
+  Future<void> _validate() async {
     final _isvalid = _formkey.currentState.validate();
     if (_isvalid) {
+      setState(() {
+        _isLoading = true;
+      });
       _formkey.currentState.save();
-      Navigator.pushNamed(context, "/homepage");
-      auth.createUserWithEmailAndPassword(
-          email: emailaddress.toLowerCase().trim(), password: password.trim());
+      try {
+        await _auth
+            .signInWithEmailAndPassword(
+                email: emailaddress.toLowerCase().trim(),
+                password: password.trim())
+            .then((value) =>
+                Navigator.canPop(context) ? Navigator.pop(context) : null);
+      } catch (error) {
+        _autherrorDialog.showDialogg(context, error.message);
+      } finally {
+        setState(() {
+          _isLoading = false;
+        });
+      }
     }
   }
 
@@ -149,10 +166,15 @@ class _LoginpageState extends State<Loginpage> {
                     child: RaisedButton(
                         onPressed: () => _validate(),
                         color: Colors.blueGrey,
-                        child: Text(
-                          "Log in",
-                          style: TextStyle(fontSize: 20, color: Colors.white),
-                        ),
+                        child: _isLoading
+                            ? CircularProgressIndicator(
+                                color: Colors.white,
+                              )
+                            : Text(
+                                "Log in",
+                                style: TextStyle(
+                                    fontSize: 20, color: Colors.white),
+                              ),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15))),
                     width: 340,

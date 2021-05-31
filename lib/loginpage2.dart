@@ -1,3 +1,4 @@
+import 'package:MYCSIT/dialogbox.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -13,32 +14,29 @@ class _Loginpage2State extends State<Loginpage2> {
   String emailaddress = "", password = "", name = "";
   bool _obscuretext = true;
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  autherrorDialog _autherrorDialog = autherrorDialog();
+  bool _isLoading = false;
 
   void validation() async {
     final _isvalid = _formkey.currentState.validate();
     if (_isvalid) {
       _formkey.currentState.save();
+      setState(() {
+        _isLoading = true;
+      });
       try {
-        UserCredential credential = await _auth
+        /* UserCredential credential = */ await _auth
             .createUserWithEmailAndPassword(
                 email: emailaddress.toLowerCase().trim(),
-                password: password.trim())
-            .whenComplete(() => Navigator.pushNamed(context, "/homepage"));
-        User user = credential.user;
-      } catch (e) {
-        switch (e.code) {
-          case "email-already-in-use":
-            print("email-already-in-use");
-            break;
-          case "invalid-email":
-            print("invalid-email");
-            break;
-          case "operation-not-allowed":
-            print("operation-not-allowed");
-            break;
-          case "weak-password":
-            print("weak-password");
-        }
+                password: password.trim());
+        //.whenComplete(() => Navigator.pushNamed(context, "/homepage"));
+        /* User user = credential.user; */
+      } catch (error) {
+        _autherrorDialog.showDialogg(context, error.message);
+      } finally {
+        setState(() {
+          _isLoading = false;
+        });
       }
     }
   }
@@ -111,7 +109,7 @@ class _Loginpage2State extends State<Loginpage2> {
                     if (value.isEmpty) {
                       return "Enter your full name";
                     } else
-                      null;
+                      return null;
                   },
                   decoration: InputDecoration(
                       prefixIcon: Icon(Icons.person),
@@ -132,7 +130,7 @@ class _Loginpage2State extends State<Loginpage2> {
                 padding:
                     const EdgeInsets.only(left: 30.0, right: 30.0, top: 10),
                 child: TextFormField(
-                  key: ValueKey("email"),
+                  key: ValueKey("emailaddress"),
                   textInputAction: TextInputAction.next,
                   keyboardType: TextInputType.emailAddress,
                   validator: (value) {
@@ -197,10 +195,14 @@ class _Loginpage2State extends State<Loginpage2> {
                 child: RaisedButton(
                     onPressed: () => validation(),
                     color: Colors.blueGrey,
-                    child: Text(
-                      "Next",
-                      style: TextStyle(fontSize: 20, color: Colors.white),
-                    ),
+                    child: _isLoading
+                        ? CircularProgressIndicator(
+                            color: Colors.white,
+                          )
+                        : Text(
+                            "Next",
+                            style: TextStyle(fontSize: 20, color: Colors.white),
+                          ),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15))),
                 width: 340,
@@ -218,7 +220,7 @@ class _Loginpage2State extends State<Loginpage2> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, "/");
+                      Navigator.pushNamed(context, "/loginpage1");
                     },
                     child: Text(
                       "Log in",
