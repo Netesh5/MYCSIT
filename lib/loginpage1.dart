@@ -1,5 +1,5 @@
 import 'dart:ui';
-
+import 'googleauth.dart';
 import 'package:MYCSIT/dialogbox.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -82,7 +82,9 @@ class _LoginpageState extends State<Loginpage> {
               child: SignInButton(
                 Buttons.Google,
                 text: "Continue with Google",
-                onPressed: () {},
+                onPressed: () {
+                  googleSignIn(context);
+                },
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15)),
               ),

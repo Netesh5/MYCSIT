@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 
 class Mydrawer extends StatelessWidget {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  final image =
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVTFpsgcrxvZ2t6P4PCWdVpiQlp_HxMunNzw&usqp=CAU";
+  final user = FirebaseAuth.instance.currentUser;
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -18,16 +17,10 @@ class Mydrawer extends StatelessWidget {
               child: UserAccountsDrawerHeader(
                 decoration: BoxDecoration(color: Colors.orangeAccent),
                 margin: EdgeInsets.zero,
-                accountName: Text(
-                  "Elon Musk",
-                  //style: TextStyle(color: Colors.black),
-                ),
-                accountEmail: Text(
-                  "elon.musk@dogecoin.com",
-                  // style: TextStyle(color: Colors.black),
-                ),
+                accountName: Text(user.displayName),
+                accountEmail: Text(user.email),
                 currentAccountPicture: CircleAvatar(
-                  backgroundImage: NetworkImage(image),
+                  backgroundImage: NetworkImage(user.photoURL),
                 ),
               ),
             ),
