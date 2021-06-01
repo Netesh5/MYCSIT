@@ -1,10 +1,29 @@
+import 'package:MYCSIT/loginpage1.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'loginpage2.dart';
 
 class Mydrawer extends StatelessWidget {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final user = FirebaseAuth.instance.currentUser;
+  Loginpage2 _loginpage2 = Loginpage2();
+  namedetail() {
+    if (user != null) {
+      return user.displayName;
+    } else {
+      return null;
+    }
+  }
+
+  image() {
+    if (user != null) {
+      return user.photoURL;
+    } else {
+      return "https://images.vexels.com/media/users/3/134594/isolated/preview/cb4dd9ad3fa5ad833e9b38cb75baa18a-happy-emoji-emoticon-by-vexels.png";
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -17,10 +36,12 @@ class Mydrawer extends StatelessWidget {
               child: UserAccountsDrawerHeader(
                 decoration: BoxDecoration(color: Colors.orangeAccent),
                 margin: EdgeInsets.zero,
-                accountName: Text(user.displayName),
+                accountName: Text(
+                  namedetail(),
+                ),
                 accountEmail: Text(user.email),
                 currentAccountPicture: CircleAvatar(
-                  backgroundImage: NetworkImage(user.photoURL),
+                  backgroundImage: NetworkImage(image()),
                 ),
               ),
             ),
