@@ -33,6 +33,14 @@ class _HomepageState extends State<Homepage> {
 
   final user = FirebaseAuth.instance.currentUser;
 
+  namedetail() {
+    if (user != null) {
+      return "Hi! " + user.displayName;
+    } else {
+      return "Hi! Buddy";
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,7 +80,7 @@ class _HomepageState extends State<Homepage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Hi! ${user.displayName}",
+                namedetail(),
                 style: GoogleFonts.notoSans(
                   textStyle: TextStyle(
                     fontSize: 20,
