@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "28573829657",
+    "project_id": "csit-auth",
+    "storage_bucket": "csit-auth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:28573829657:android:10b6a28810f88ee7ccb888",
+        "android_client_info": {
+          "package_name": "com.example.MYCSIT"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "28573829657-h4mk18gdnthtpmrfrtfoclnhf9jnv37c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.MYCSIT",
+            "certificate_hash": "81c9d970aa464fafc017c7a06bb81ea808d515c7"
+          }
+        },
+        {
+          "client_id": "28573829657-i56qjvaa802b4jesq7gsct211284gfjm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBI0spk5iVjiLIqbtoEnwXF9ZNSAVLaQAg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "28573829657-i56qjvaa802b4jesq7gsct211284gfjm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
