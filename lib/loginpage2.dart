@@ -25,11 +25,12 @@ class _Loginpage2State extends State<Loginpage2> {
         _isLoading = true;
       });
       try {
-        await _auth.createUserWithEmailAndPassword(
-            email: _emailaddress.toLowerCase().trim(),
-            password: _password.trim());
-        //.whenComplete(() => Navigator.pushNamed(context, "/homepage"));
-
+        await _auth
+            .createUserWithEmailAndPassword(
+                email: _emailaddress.toLowerCase().trim(),
+                password: _password.trim())
+            .then((value) =>
+                Navigator.canPop(context) ? Navigator.pop(context) : null);
       } catch (error) {
         _autherrorDialog.showDialogg(context, error.message);
       } finally {
