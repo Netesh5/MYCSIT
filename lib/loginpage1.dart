@@ -12,15 +12,15 @@ class Loginpage extends StatefulWidget {
 }
 
 class _LoginpageState extends State<Loginpage> {
-  String _emailaddress = "";
-  String _password = "";
+  String emailaddress = "";
+  String password = "";
   bool _obscuretext = true;
   final _formkey = GlobalKey<FormState>();
   final FirebaseAuth _auth = FirebaseAuth.instance;
   bool _isLoading = false;
   autherrorDialog _autherrorDialog = autherrorDialog();
 
-  void _validate() async {
+  Future<void> _validate() async {
     final _isvalid = _formkey.currentState.validate();
     if (_isvalid) {
       setState(() {
@@ -30,8 +30,8 @@ class _LoginpageState extends State<Loginpage> {
       try {
         await _auth
             .signInWithEmailAndPassword(
-                email: _emailaddress.toLowerCase().trim(),
-                password: _password.trim())
+                email: emailaddress.toLowerCase().trim(),
+                password: password.trim())
             .then((value) =>
                 Navigator.canPop(context) ? Navigator.pop(context) : null);
       } catch (error) {
@@ -83,7 +83,7 @@ class _LoginpageState extends State<Loginpage> {
                 Buttons.Google,
                 text: "Continue with Google",
                 onPressed: () {
-                  _googleSignIn(context);
+                  googleSignIn(context);
                 },
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15)),
@@ -119,7 +119,7 @@ class _LoginpageState extends State<Loginpage> {
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(15))),
                       onSaved: (value) {
-                        _emailaddress = value;
+                        emailaddress = value;
                       },
                     ),
                   ),
@@ -157,7 +157,7 @@ class _LoginpageState extends State<Loginpage> {
                         ),
                       ),
                       onSaved: (value) {
-                        _password = value;
+                        password = value;
                       },
                     ),
                   ),
@@ -217,16 +217,16 @@ class _LoginpageState extends State<Loginpage> {
   }
 }
 
-final FirebaseAuth _auth2 = FirebaseAuth.instance;
+final FirebaseAuth _auth = FirebaseAuth.instance;
 autherrorDialog _autherrorDialog = autherrorDialog();
-Future<void> _googleSignIn() async {
+Future<void> googleSignIn(BuildContext context) async {
   final googleSignIn = GoogleSignIn();
-  final googleAccount = await googleSignIn.signIn();
-  if (googleAccount != null) {
-    final googleAuth = await googleAccount.authentication;
+  final googleaccount = await googleSignIn.signIn();
+  if (googleaccount != null) {
+    final googleAuth = await googleaccount.authentication;
     if (googleAuth.accessToken != null && googleAuth.idToken != null) {
       try {
-        final authResult = await _auth2.signInWithCredential(
+        final authResult = await _auth.signInWithCredential(
             GoogleAuthProvider.credential(
                 idToken: googleAuth.idToken,
                 accessToken: googleAuth.accessToken));
