@@ -31,13 +31,13 @@ class _HomepageState extends State<Homepage> {
     });
   }
 
-  final user = FirebaseAuth.instance.currentUser;
-
+  User user = FirebaseAuth.instance.currentUser;
+  String name = "Hi! Buddy";
   namedetail() {
     if (user != null) {
       return "Hi! " + user.displayName;
     } else {
-      return "Hi! Buddy";
+      return name;
     }
   }
 

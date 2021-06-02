@@ -11,13 +11,13 @@ class Loginpage2 extends StatefulWidget {
 
 class _Loginpage2State extends State<Loginpage2> {
   final _formkey = GlobalKey<FormState>();
-  String emailaddress = "", password = "", name = "";
+  String _emailaddress = "", _password = "", _name = "";
   bool _obscuretext = true;
   final FirebaseAuth _auth = FirebaseAuth.instance;
   autherrorDialog _autherrorDialog = autherrorDialog();
   bool _isLoading = false;
 
-  void validation() async {
+  void _validate() async {
     final _isvalid = _formkey.currentState.validate();
     if (_isvalid) {
       _formkey.currentState.save();
@@ -25,12 +25,12 @@ class _Loginpage2State extends State<Loginpage2> {
         _isLoading = true;
       });
       try {
-        /* UserCredential credential = */ await _auth
+        await _auth
             .createUserWithEmailAndPassword(
-                email: emailaddress.toLowerCase().trim(),
-                password: password.trim());
-        //.whenComplete(() => Navigator.pushNamed(context, "/homepage"));
-        /* User user = credential.user; */
+                email: _emailaddress.toLowerCase().trim(),
+                password: _password.trim())
+            .then((value) =>
+                Navigator.canPop(context) ? Navigator.pop(context) : null);
       } catch (error) {
         _autherrorDialog.showDialogg(context, error.message);
       } finally {
@@ -117,7 +117,7 @@ class _Loginpage2State extends State<Loginpage2> {
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15))),
                   onSaved: (value) {
-                    name = value;
+                    _name = value;
                   },
                 ),
               ),
@@ -145,7 +145,7 @@ class _Loginpage2State extends State<Loginpage2> {
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15))),
                   onSaved: (value) {
-                    emailaddress = value;
+                    _emailaddress = value;
                   },
                 ),
               ),
@@ -184,7 +184,7 @@ class _Loginpage2State extends State<Loginpage2> {
                     ),
                   ),
                   onSaved: (value) {
-                    password = value;
+                    _password = value;
                   },
                 ),
               ),
@@ -193,7 +193,7 @@ class _Loginpage2State extends State<Loginpage2> {
               ),
               SizedBox(
                 child: RaisedButton(
-                    onPressed: () => validation(),
+                    onPressed: () => _validate(),
                     color: Colors.blueGrey,
                     child: _isLoading
                         ? CircularProgressIndicator(
