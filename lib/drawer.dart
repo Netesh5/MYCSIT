@@ -4,21 +4,15 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'loginpage2.dart';
 
+// ignore: must_be_immutable
 class Mydrawer extends StatelessWidget {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  final user = FirebaseAuth.instance.currentUser;
+  User firebaseUser = FirebaseAuth.instance.currentUser;
   Loginpage2 _loginpage2 = Loginpage2();
-  namedetail() {
-    if (user != null) {
-      return user.displayName;
-    } else {
-      return null;
-    }
-  }
 
-  image() {
-    if (user != null) {
-      return user.photoURL;
+  String image() {
+    if (firebaseUser != null) {
+      return firebaseUser.photoURL;
     } else {
       return "https://images.vexels.com/media/users/3/134594/isolated/preview/cb4dd9ad3fa5ad833e9b38cb75baa18a-happy-emoji-emoticon-by-vexels.png";
     }
@@ -37,9 +31,9 @@ class Mydrawer extends StatelessWidget {
                 decoration: BoxDecoration(color: Colors.orangeAccent),
                 margin: EdgeInsets.zero,
                 accountName: Text(
-                  namedetail(),
+                  firebaseUser.displayName,
                 ),
-                accountEmail: Text(user.email),
+                accountEmail: Text(firebaseUser.email),
                 currentAccountPicture: CircleAvatar(
                   backgroundImage: NetworkImage(image()),
                 ),
@@ -88,8 +82,8 @@ class Mydrawer extends StatelessWidget {
               ),
             ),
             ListTile(
-              onTap: () {
-                _auth.signOut();
+              onTap: () async {
+                await _auth.signOut();
               },
               leading: Icon(
                 Icons.logout,

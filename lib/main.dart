@@ -14,9 +14,8 @@ import 'resourceshare.dart';
 import 'contactinfo.dart';
 import 'google.dart';
 
-void main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
   runApp(Myapp());
 }
 
@@ -27,12 +26,12 @@ class Myapp extends StatefulWidget {
 }
 
 class _MyappState extends State<Myapp> {
-  final Future<FirebaseApp> initialization = Firebase.initializeApp();
+  final Future<FirebaseApp> _initialization = Firebase.initializeApp();
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<Object>(
-        future: initialization,
+        future: _initialization,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(
@@ -40,7 +39,9 @@ class _MyappState extends State<Myapp> {
               color: Colors.blueGrey,
             ));
           } else if (snapshot.hasError) {
-            Center(child: Text("Error occured"));
+            return Center(
+              child: Text("Error occured"),
+            );
           }
           return MaterialApp(
             debugShowCheckedModeBanner: false,
