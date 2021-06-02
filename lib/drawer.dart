@@ -1,3 +1,4 @@
+  
 import 'package:MYCSIT/loginpage1.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -34,11 +35,9 @@ class Mydrawer extends StatelessWidget {
                   firebaseUser.displayName,
                 ),
                 accountEmail: Text(firebaseUser.email),
-                currentAccountPicture: CircleAvatar(
-                  backgroundImage: NetworkImage(image()),
                 ),
               ),
-            ),
+          
             ListTile(
               onTap: () {
                 Navigator.pushNamed(context, "/homepage");

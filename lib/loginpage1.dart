@@ -219,7 +219,7 @@ class _LoginpageState extends State<Loginpage> {
 
 final FirebaseAuth _auth2 = FirebaseAuth.instance;
 autherrorDialog _autherrorDialog = autherrorDialog();
-Future<void> _googleSignIn(BuildContext context) async {
+Future<void> _googleSignIn() async {
   final googleSignIn = GoogleSignIn();
   final googleAccount = await googleSignIn.signIn();
   if (googleAccount != null) {
