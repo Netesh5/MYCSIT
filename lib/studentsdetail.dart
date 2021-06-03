@@ -1,8 +1,8 @@
 var studentdetails = [
   {
-    "name": "Aabhushan Adhikari",
-    "phoneno": "tel:9867838664",
-    "address": "adf",
+    "name": "Aabhushan Adhikari",//
+    "phoneno": "tel:9863262427",
+    "address": "Pepsicola Town Planning",
     "email": "",
   },
   {
@@ -12,9 +12,9 @@ var studentdetails = [
     "email": "",
   },
   {
-    "name": "Alish Thapa",
-    "phoneno": "tel:9867838664",
-    "address": "asdf",
+    "name": "Alish Thapa",// 
+    "phoneno": "tel:9863604450",
+    "address": "Bhaktapur",
     "email": "",
   },
   {
@@ -24,9 +24,9 @@ var studentdetails = [
     "email": "",
   },
   {
-    "name": "Anish Baniya",
-    "phoneno": "tel:9867838664",
-    "address": "asdf",
+    "name": "Anish Baniya",//
+    "phoneno": "tel:9869588239",
+    "address": "Baneshwor",
     "email": "",
   },
   {
@@ -36,9 +36,9 @@ var studentdetails = [
     "email": "",
   },
   {
-    "name": "Anukul Bhattari",
-    "phoneno": "tel:9867838664",
-    "address": "asdf",
+    "name": "Anukul Bhattari",//
+    "phoneno": "tel:9804954440",
+    "address": "Lokanthali",
     "email": "",
   },
   {
@@ -60,9 +60,9 @@ var studentdetails = [
     "email": "",
   },
   {
-    "name": "Bikash Kumar Aidy",
-    "phoneno": "tel:9867838664",
-    "address": "asdf",
+    "name": "Bikash Kumar Aidy",//
+    "phoneno": "tel:9867592700",
+    "address": "Bhaktapur",
     "email": "",
   },
   {
@@ -78,15 +78,15 @@ var studentdetails = [
     "email": "",
   },
   {
-    "name": "Dewanand Giri",
-    "phoneno": "tel:9867838664",
-    "address": "asdf",
+    "name": "Dewanand Giri",//
+    "phoneno": "tel:9841134471",
+    "address": "",
     "email": "",
   },
   {
-    "name": "Diwakar Khatiwada",
-    "phoneno": "tel:9867838664",
-    "address": "asdf",
+    "name": "Diwakar Khatiwada",//
+    "phoneno": "tel:9860172688",
+    "address": "",
     "email": "",
   },
   {
@@ -96,9 +96,9 @@ var studentdetails = [
     "email": "",
   },
   {
-    "name": "Gopal Karki",
-    "phoneno": "tel:9867838664",
-    "address": "asdf",
+    "name": "Gopal Karki",//
+    "phoneno": "tel:9818112146",
+    "address": "Sanothimi",
     "email": "",
   },
   {
@@ -108,9 +108,9 @@ var studentdetails = [
     "email": "",
   },
   {
-    "name": "Kushal Pokharel",
-    "phoneno": "tel:9867838664",
-    "address": "asdf",
+    "name": "Kushal Pokharel",//
+    "phoneno": "tel:9817322364",
+    "address": "Jadibuti",
     "email": "",
   },
   {
@@ -132,9 +132,9 @@ var studentdetails = [
     "email": "",
   },
   {
-    "name": "Nitesh Paudel",
+    "name": "Nitesh Paudel",//
     "phoneno": "tel:9867838664",
-    "address": "asdf",
+    "address": "Koteshwor",
     "email": "",
   },
   {
@@ -144,9 +144,9 @@ var studentdetails = [
     "email": "",
   },
   {
-    "name": "Pallavi Mishra",
-    "phoneno": "tel:9867838664",
-    "address": "asdf",
+    "name": "Pallavi Mishra",//
+    "phoneno": "tel:9813589517",
+    "address": "Kaushaltar",
     "email": "",
   },
   {
@@ -174,9 +174,9 @@ var studentdetails = [
     "email": "",
   },
   {
-    "name": "Prasanna Pokharel",
-    "phoneno": "tel:9867838664",
-    "address": "asdf",
+    "name": "Prasanna Pokharel",//
+    "phoneno": "tel:9868962100",
+    "address": "Gatthaghar",
     "email": "",
   },
   {
@@ -192,9 +192,9 @@ var studentdetails = [
     "email": "",
   },
   {
-    "name": "Prasiddha Shrestha",
-    "phoneno": "tel:9867838664",
-    "address": "asdf",
+    "name": "Prasiddha Shrestha",//
+    "phoneno": "tel:9862403467",
+    "address": "",
     "email": "",
   },
   {
@@ -252,15 +252,15 @@ var studentdetails = [
     "email": "",
   },
   {
-    "name": "Sristi Shrestha",
-    "phoneno": "tel:9867838664",
-    "address": "asdf",
+    "name": "Sristi Shrestha",//
+    "phoneno": "tel:9843091552",
+    "address": "Kaushaltar",
     "email": "",
   },
   {
     "name": "Sudarshan Basnet",
-    "phoneno": "tel:9867838664",
-    "address": "asdf",
+    "phoneno": "tel:9861342090",//
+    "address": "",
     "email": "",
   },
   {

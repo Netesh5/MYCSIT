@@ -1,32 +1,38 @@
 var teachersdetail = [
   {
     "name": "Madhav Bhatta",
-    "address": "bhalwari",
+    "address": "Kathmandu",
     "phoneno": "tel:9867838664",
-    "desp": "CEO of SpaceX and Tesla"
+    "Faculty": "STAT I & II"
   },
   {
     "name": "Surendra Pathak",
-    "address": "bhalwari",
+    "address": "Kathmandu",
     "phoneno": "tel:9867838664",
-    "desp": " CEO of SpaceX and Tesla"
+    "Faculty": " Mathematics I & II"
   },
   {
     "name": "Mohan Bhandari",
-    "address": "bhalwari",
+    "address": "Kathmandu",
     "phoneno": "tel:9847077860",
-    "desp": "CEO of SpaceX and Tesla"
+    "Faculty": "C-Programming , OOP , Computer Graphics"
   },
   {
     "name": "Sudip Raj Khadka",
-    "address": "bhalwari",
+    "address": "Kathmandu",
     "phoneno": "tel:9867838664",
-    "desp": " adfadfadf"
+    "Faculty": " DL, Microprocessor, Computer Architecture"
   },
   {
     "name": "Ramesh singh Saud",
-    "address": "bhalwari",
+    "address": "Kathmandu",
     "phoneno": "tel:9867838664",
-    "desp": " adfadfadf"
+    "Faculty": " DS, DSA "
+  },
+  {
+    "name": "Rajan Budathoki",
+    "address": "Kathmandu",
+    "phoneno": "tel:9867838664",
+    "Faculty": " IIT"
   },
 ];

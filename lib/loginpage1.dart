@@ -13,15 +13,15 @@ class Loginpage extends StatefulWidget {
 }
 
 class _LoginpageState extends State<Loginpage> {
-  String _emailaddress = "";
-  String _password = "";
+  String emailaddress = "";
+  String password = "";
   bool _obscuretext = true;
   final _formkey = GlobalKey<FormState>();
   final FirebaseAuth _auth = FirebaseAuth.instance;
   bool _isLoading = false;
   autherrorDialog _autherrorDialog = autherrorDialog();
 
-  void _validate() async {
+  Future<void> _validate() async {
     final _isvalid = _formkey.currentState.validate();
     if (_isvalid) {
       setState(() {
@@ -31,8 +31,8 @@ class _LoginpageState extends State<Loginpage> {
       try {
         await _auth
             .signInWithEmailAndPassword(
-                email: _emailaddress.toLowerCase().trim(),
-                password: _password.trim())
+                email: emailaddress.toLowerCase().trim(),
+                password: password.trim())
             .then((value) =>
                 Navigator.canPop(context) ? Navigator.pop(context) : null);
       } catch (error) {
@@ -150,7 +150,7 @@ class _LoginpageState extends State<Loginpage> {
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(15))),
                       onSaved: (value) {
-                        _emailaddress = value;
+                        emailaddress = value;
                       },
                     ),
                   ),
@@ -188,7 +188,7 @@ class _LoginpageState extends State<Loginpage> {
                         ),
                       ),
                       onSaved: (value) {
-                        _password = value;
+                        password = value;
                       },
                     ),
                   ),
