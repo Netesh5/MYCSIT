@@ -34,7 +34,7 @@ class _HomepageState extends State<Homepage> {
   User user = FirebaseAuth.instance.currentUser;
   String name = "Hi! Buddy";
   namedetail() {
-    if (user != null) {
+    if (user == null) {
       return "Hi! " + user.displayName;
     } else {
       return name;

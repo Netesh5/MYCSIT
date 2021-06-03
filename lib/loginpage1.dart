@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:MYCSIT/dialogbox.dart';
+import 'package:MYCSIT/homepage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -44,6 +45,27 @@ class _LoginpageState extends State<Loginpage> {
     }
   }
 
+  final FirebaseAuth _auth2 = FirebaseAuth.instance;
+  Future<void> _googleSignIn() async {
+    final googleSignIn = GoogleSignIn();
+    final googleAccount = await googleSignIn.signIn();
+    if (googleAccount != null) {
+      final googleAuth = await googleAccount.authentication;
+      if (googleAuth.accessToken != null && googleAuth.idToken != null) {
+        try {
+          final authResult = await _auth2
+              .signInWithCredential(GoogleAuthProvider.credential(
+                  idToken: googleAuth.idToken,
+                  accessToken: googleAuth.accessToken))
+              .then((value) =>
+                  Navigator.canPop(context) ? Navigator.pop(context) : null);
+        } catch (error) {
+          _autherrorDialog.showDialogg(context, error.message);
+        }
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,7 +105,9 @@ class _LoginpageState extends State<Loginpage> {
                 Buttons.Google,
                 text: "Continue with Google",
                 onPressed: () {
-                  _googleSignIn(context);
+                  _googleSignIn().whenComplete(() => Navigator.of(context)
+                      .pushReplacement(
+                          MaterialPageRoute(builder: (context) => Homepage())));
                 },
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15)),
@@ -91,12 +115,19 @@ class _LoginpageState extends State<Loginpage> {
               width: 340,
               height: 50,
             ),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              "Or",
+              style: TextStyle(fontSize: 16),
+            ),
             Form(
               key: _formkey,
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 50, right: 300),
+                    padding: const EdgeInsets.only(top: 30, right: 300),
                     child: Text("Email",
                         style: TextStyle(fontSize: 15, color: Colors.black)),
                   ),
@@ -214,25 +245,5 @@ class _LoginpageState extends State<Loginpage> {
         ),
       ),
     );
-  }
-}
-
-final FirebaseAuth _auth2 = FirebaseAuth.instance;
-autherrorDialog _autherrorDialog = autherrorDialog();
-Future<void> _googleSignIn(BuildContext context) async {
-  final googleSignIn = GoogleSignIn();
-  final googleAccount = await googleSignIn.signIn();
-  if (googleAccount != null) {
-    final googleAuth = await googleAccount.authentication;
-    if (googleAuth.accessToken != null && googleAuth.idToken != null) {
-      try {
-        final authResult = await _auth2.signInWithCredential(
-            GoogleAuthProvider.credential(
-                idToken: googleAuth.idToken,
-                accessToken: googleAuth.accessToken));
-      } catch (error) {
-        _autherrorDialog.showDialogg(context, error.message);
-      }
-    }
   }
 }
