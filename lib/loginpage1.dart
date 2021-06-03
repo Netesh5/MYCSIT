@@ -53,12 +53,10 @@ class _LoginpageState extends State<Loginpage> {
       final googleAuth = await googleAccount.authentication;
       if (googleAuth.accessToken != null && googleAuth.idToken != null) {
         try {
-          final authResult = await _auth2
-              .signInWithCredential(GoogleAuthProvider.credential(
+          final authResult = await _auth2.signInWithCredential(
+              GoogleAuthProvider.credential(
                   idToken: googleAuth.idToken,
-                  accessToken: googleAuth.accessToken))
-              .then((value) =>
-                  Navigator.canPop(context) ? Navigator.pop(context) : null);
+                  accessToken: googleAuth.accessToken));
         } catch (error) {
           _autherrorDialog.showDialogg(context, error.message);
         }
