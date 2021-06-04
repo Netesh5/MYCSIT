@@ -1,11 +1,11 @@
 import 'dart:ui';
-import 'package:MYCSIT/dialogbox.dart';
-import 'package:MYCSIT/homepage.dart';
+import 'package:MYCSIT/error_handle/dialogbox.dart';
+import 'package:MYCSIT/auth/googelauth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+import 'package:provider/provider.dart';
 
 class Loginpage extends StatefulWidget {
   @override
@@ -41,25 +41,6 @@ class _LoginpageState extends State<Loginpage> {
         setState(() {
           _isLoading = false;
         });
-      }
-    }
-  }
-
-  final FirebaseAuth _auth2 = FirebaseAuth.instance;
-  Future<void> _googleSignIn() async {
-    final googleSignIn = GoogleSignIn();
-    final googleAccount = await googleSignIn.signIn();
-    if (googleAccount != null) {
-      final googleAuth = await googleAccount.authentication;
-      if (googleAuth.accessToken != null && googleAuth.idToken != null) {
-        try {
-          final authResult = await _auth2.signInWithCredential(
-              GoogleAuthProvider.credential(
-                  idToken: googleAuth.idToken,
-                  accessToken: googleAuth.accessToken));
-        } catch (error) {
-          _autherrorDialog.showDialogg(context, error.message);
-        }
       }
     }
   }
@@ -103,9 +84,9 @@ class _LoginpageState extends State<Loginpage> {
                 Buttons.Google,
                 text: "Continue with Google",
                 onPressed: () {
-                  _googleSignIn().whenComplete(() => Navigator.of(context)
-                      .pushReplacement(
-                          MaterialPageRoute(builder: (context) => Homepage())));
+                  final provider =
+                      Provider.of<GoogleSignInProvider>(context, listen: false);
+                  provider.googleLogIn(context);
                 },
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15)),
@@ -194,6 +175,7 @@ class _LoginpageState extends State<Loginpage> {
                     height: 30,
                   ),
                   SizedBox(
+                    // ignore: deprecated_member_use
                     child: RaisedButton(
                         onPressed: () => _validate(),
                         color: Colors.blueGrey,

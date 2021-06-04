@@ -1,4 +1,4 @@
-import 'package:MYCSIT/dialogbox.dart';
+import 'package:MYCSIT/error_handle/dialogbox.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,6 +11,7 @@ class Loginpage2 extends StatefulWidget {
 
 class _Loginpage2State extends State<Loginpage2> {
   final _formkey = GlobalKey<FormState>();
+  // ignore: unused_field
   String _emailaddress = "", _password = "", _name = "";
   bool _obscuretext = true;
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -192,6 +193,7 @@ class _Loginpage2State extends State<Loginpage2> {
                 height: 30,
               ),
               SizedBox(
+                // ignore: deprecated_member_use
                 child: RaisedButton(
                     onPressed: () => _validate(),
                     color: Colors.blueGrey,

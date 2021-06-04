@@ -1,23 +1,19 @@
-import 'package:MYCSIT/loginpage1.dart';
+import 'package:MYCSIT/auth/googelauth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'loginpage2.dart';
+import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
 class Mydrawer extends StatelessWidget {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-  User firebaseUser = FirebaseAuth.instance.currentUser;
-  Loginpage2 _loginpage2 = Loginpage2();
+  User user = FirebaseAuth.instance.currentUser;
 
-  String image() {
+  /*  String image() {
     if (firebaseUser == null) {
       return firebaseUser.photoURL;
     } else {
       return "https://images.vexels.com/media/users/3/134594/isolated/preview/cb4dd9ad3fa5ad833e9b38cb75baa18a-happy-emoji-emoticon-by-vexels.png";
     }
-  }
+  } */
 
   @override
   Widget build(BuildContext context) {
@@ -32,12 +28,12 @@ class Mydrawer extends StatelessWidget {
                 decoration: BoxDecoration(color: Colors.orangeAccent),
                 margin: EdgeInsets.zero,
                 accountName: Text(
-                  "",
+                  user.displayName,
                 ),
-                accountEmail: Text(""),
+                accountEmail: Text(user.email),
                 currentAccountPicture: CircleAvatar(
-                    /* backgroundImage: NetworkImage(image()), */
-                    ),
+                  backgroundImage: NetworkImage(user.photoURL),
+                ),
               ),
             ),
             ListTile(
@@ -83,10 +79,10 @@ class Mydrawer extends StatelessWidget {
               ),
             ),
             ListTile(
-              onTap: () async {
-                await _auth.signOut().whenComplete(() => Navigator.of(context)
-                    .pushReplacement(
-                        MaterialPageRoute(builder: (context) => Loginpage())));
+              onTap: () {
+                final provider =
+                    Provider.of<GoogleSignInProvider>(context, listen: false);
+                provider.Logout();
               },
               leading: Icon(
                 Icons.logout,

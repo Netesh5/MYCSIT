@@ -1,4 +1,4 @@
-import 'package:MYCSIT/drawer.dart';
+import 'package:MYCSIT/draweritems/drawer.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -32,14 +32,14 @@ class _HomepageState extends State<Homepage> {
   }
 
   User user = FirebaseAuth.instance.currentUser;
-  String name = "Hi! Buddy";
+  /* String name = "Hi! Buddy";
   namedetail() {
     if (user == null) {
       return "Hi! " + user.displayName;
     } else {
       return name;
     }
-  }
+  } */
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +80,7 @@ class _HomepageState extends State<Homepage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                namedetail(),
+                "Hi! " + user.displayName,
                 style: GoogleFonts.notoSans(
                   textStyle: TextStyle(
                     fontSize: 20,
