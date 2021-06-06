@@ -2,7 +2,6 @@ import 'package:MYCSIT/draweritems/drawer.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -13,6 +12,7 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  Homepage homepage = Homepage();
   String greeting() {
     var hour = DateTime.now().hour;
     if (hour < 12) {
@@ -31,15 +31,7 @@ class _HomepageState extends State<Homepage> {
     });
   }
 
-  User user = FirebaseAuth.instance.currentUser;
-  /* String name = "Hi! Buddy";
-  namedetail() {
-    if (user == null) {
-      return "Hi! " + user.displayName;
-    } else {
-      return name;
-    }
-  } */
+  final user = FirebaseAuth.instance.currentUser;
 
   @override
   Widget build(BuildContext context) {
@@ -81,18 +73,18 @@ class _HomepageState extends State<Homepage> {
             children: [
               Text(
                 "Hi! " + user.displayName,
-                style: GoogleFonts.notoSans(
+                style: GoogleFonts.nunito(
                   textStyle: TextStyle(
                     fontSize: 20,
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ),
               Text(greeting(),
-                  style: GoogleFonts.notoSans(
+                  style: GoogleFonts.nunito(
                     textStyle: TextStyle(
                       fontSize: 16,
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.w700,
                     ),
                   )),
               SizedBox(

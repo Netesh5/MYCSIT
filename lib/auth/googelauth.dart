@@ -41,7 +41,11 @@ class GoogleSignInProvider extends ChangeNotifier {
 
   // ignore: non_constant_identifier_names
   void Logout() async {
-    await googleSignIn.disconnect();
-    FirebaseAuth.instance.signOut();
+    try {
+      await googleSignIn.disconnect();
+      FirebaseAuth.instance.signOut();
+    } catch (error) {
+      print(error.message);
+    }
   }
 }

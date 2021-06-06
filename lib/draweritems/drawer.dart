@@ -1,19 +1,18 @@
 import 'package:MYCSIT/auth/googelauth.dart';
+import 'package:MYCSIT/error_handle/dialogbox.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
-class Mydrawer extends StatelessWidget {
-  User user = FirebaseAuth.instance.currentUser;
+class Mydrawer extends StatefulWidget {
+  @override
+  _MydrawerState createState() => _MydrawerState();
+}
 
-  /*  String image() {
-    if (firebaseUser == null) {
-      return firebaseUser.photoURL;
-    } else {
-      return "https://images.vexels.com/media/users/3/134594/isolated/preview/cb4dd9ad3fa5ad833e9b38cb75baa18a-happy-emoji-emoticon-by-vexels.png";
-    }
-  } */
+class _MydrawerState extends State<Mydrawer> {
+  User user = FirebaseAuth.instance.currentUser;
+  autherrorDialog _autherroDialog = autherrorDialog();
 
   @override
   Widget build(BuildContext context) {
@@ -25,16 +24,15 @@ class Mydrawer extends StatelessWidget {
             DrawerHeader(
               padding: EdgeInsets.zero,
               child: UserAccountsDrawerHeader(
-                decoration: BoxDecoration(color: Colors.orangeAccent),
-                margin: EdgeInsets.zero,
-                accountName: Text(
-                  user.displayName,
-                ),
-                accountEmail: Text(user.email),
-                currentAccountPicture: CircleAvatar(
-                  backgroundImage: NetworkImage(user.photoURL),
-                ),
-              ),
+                  decoration: BoxDecoration(color: Colors.orangeAccent),
+                  margin: EdgeInsets.zero,
+                  accountName: Text(
+                    user.displayName,
+                  ),
+                  accountEmail: Text(user.email),
+                  currentAccountPicture: CircleAvatar(
+                    backgroundImage: NetworkImage(user.photoURL),
+                  )),
             ),
             ListTile(
               onTap: () {
@@ -82,7 +80,7 @@ class Mydrawer extends StatelessWidget {
               onTap: () {
                 final provider =
                     Provider.of<GoogleSignInProvider>(context, listen: false);
-                provider.Logout();
+                _autherroDialog.showDialoggg(context, provider);
               },
               leading: Icon(
                 Icons.logout,

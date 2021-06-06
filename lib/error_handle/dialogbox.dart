@@ -7,6 +7,9 @@ class autherrorDialog {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
             title: Row(
               children: [
                 Icon(Icons.error_outline),
@@ -25,6 +28,48 @@ class autherrorDialog {
                 },
                 child: Text(
                   "ok",
+                  style: TextStyle(fontSize: 16),
+                ),
+              ),
+            ],
+          );
+        });
+  }
+
+  showDialoggg(BuildContext context, provider) {
+    return showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            title: Row(
+              children: [
+                Icon(Icons.logout_rounded),
+                SizedBox(width: 20),
+                Text(
+                  "Do you want to log out?",
+                  style: TextStyle(fontSize: 18),
+                ),
+              ],
+            ),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text(
+                  "No",
+                  style: TextStyle(fontSize: 16),
+                ),
+              ),
+              TextButton(
+                onPressed: () {
+                  provider.Logout().then((value) => Navigator.pop(context));
+                },
+                child: Text(
+                  "Yes",
                   style: TextStyle(fontSize: 16),
                 ),
               ),

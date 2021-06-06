@@ -1,4 +1,5 @@
-import 'package:MYCSIT/error_handle/dialogbox.dart';
+/* import 'package:MYCSIT/error_handle/dialogbox.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -81,7 +82,7 @@ class _Loginpage2State extends State<Loginpage2> {
               SizedBox(
                 child: SignInButton(
                   Buttons.Google,
-                  text: "Sign up with Google",
+                  text: "Continue with Google",
                   onPressed: () {},
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15)),
@@ -241,3 +242,4 @@ class _Loginpage2State extends State<Loginpage2> {
     );
   }
 }
+ */

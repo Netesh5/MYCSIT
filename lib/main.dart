@@ -2,7 +2,7 @@ import 'package:MYCSIT/statemgnt/Userstate.dart';
 import 'package:MYCSIT/draweritems/contactus.dart';
 import 'package:MYCSIT/draweritems/feedback.dart';
 import 'package:MYCSIT/homepageitems/homepage.dart';
-import 'package:MYCSIT/loginscreens/loginpage2.dart';
+
 import 'package:MYCSIT/homepageitems/notes.dart';
 import 'package:MYCSIT/homepageitems/noticeboard.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -43,7 +43,7 @@ class _MyappState extends State<Myapp> {
         "/": (context) => Userstate(),
         "/loginpage1": (context) => Loginpage(),
         "/homepage": (context) => Homepage(),
-        "/loginpage2": (context) => Loginpage2(),
+        /*  "/loginpage2": (context) => Loginpage2(), */
         "/noticeboard": (context) => Noticeboard(),
         "/notes": (context) => Notes(),
         "/pastquestions": (context) => Pastquestions(),
