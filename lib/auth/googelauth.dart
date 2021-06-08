@@ -40,12 +40,13 @@ class GoogleSignInProvider extends ChangeNotifier {
   }
 
   // ignore: non_constant_identifier_names
-  void Logout() async {
+  void Logout(BuildContext context) async {
     try {
       await googleSignIn.disconnect();
       FirebaseAuth.instance.signOut();
     } catch (error) {
-      print(error.message);
+      _autherrorDialog.showDialogg(context, error.message);
+      notifyListeners();
     }
   }
 }

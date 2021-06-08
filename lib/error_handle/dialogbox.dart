@@ -66,7 +66,8 @@ class autherrorDialog {
               ),
               TextButton(
                 onPressed: () {
-                  provider.Logout().then((value) => Navigator.pop(context));
+                  provider.Logout(context)
+                      .then((value) => Navigator.pop(context));
                 },
                 child: Text(
                   "Yes",
