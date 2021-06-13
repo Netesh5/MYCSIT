@@ -53,7 +53,6 @@ class _LoginpageState extends State<Loginpage> {
       //resizeToAvoidBottomInset: true,
       body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Container(
               height: MediaQuery.of(context).size.height,

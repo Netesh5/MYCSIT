@@ -14,7 +14,7 @@ var teachersdetail = [
   {
     "name": "Mohan Bhandari",
     "address": "Kathmandu",
-    "phoneno": "tel:9847077860",
+    "phoneno": "tel:9867838664",
     "Faculty": "C-Programming , OOP , Computer Graphics"
   },
   {

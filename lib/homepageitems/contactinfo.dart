@@ -2,6 +2,7 @@ import 'package:MYCSIT/teachers_students_detail/studentsdetail.dart';
 import 'package:MYCSIT/teachers_students_detail/teachersdetail.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Contactinfo extends StatefulWidget {
@@ -15,59 +16,63 @@ class _ContactinfoState extends State<Contactinfo> {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-          appBar: AppBar(
-            title: Text(
+        appBar: AppBar(
+          title: Hero(
+            tag: "contactinfo",
+            child: Text(
               "Contact info",
             ),
-            backgroundColor: Colors.white,
-            bottom: TabBar(
-              indicatorSize: TabBarIndicatorSize.label,
-              unselectedLabelStyle: TextStyle(fontSize: 13),
-              labelPadding: EdgeInsets.only(bottom: 8),
-              indicatorWeight: 3,
-              indicatorColor: Colors.black,
-              tabs: [
-                Tab(
-                  child: Container(
-                    width: 120,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      border: Border.all(color: Colors.black),
-                    ),
-                    child: Center(
-                      child: Text(
-                        "Teachers",
-                        style: TextStyle(color: Colors.black, fontSize: 16),
-                      ),
-                    ),
-                  ),
-                ),
-                Tab(
-                  child: Container(
-                    width: 120,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      border: Border.all(color: Colors.black),
-                    ),
-                    child: Center(
-                      child: Text(
-                        "Students",
-                        style: TextStyle(color: Colors.black, fontSize: 16),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
           ),
-          body: TabBarView(
-            children: [
-              teacher(context),
-              student(context),
+          backgroundColor: Colors.white,
+          bottom: TabBar(
+            indicatorSize: TabBarIndicatorSize.label,
+            unselectedLabelStyle: TextStyle(fontSize: 13),
+            labelPadding: EdgeInsets.only(bottom: 8),
+            indicatorWeight: 3,
+            indicatorColor: Colors.black,
+            tabs: [
+              Tab(
+                child: Container(
+                  width: 120,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    border: Border.all(color: Colors.black),
+                  ),
+                  child: Center(
+                    child: Text(
+                      "Teachers",
+                      style: TextStyle(color: Colors.black, fontSize: 16),
+                    ),
+                  ),
+                ),
+              ),
+              Tab(
+                child: Container(
+                  width: 120,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    border: Border.all(color: Colors.black),
+                  ),
+                  child: Center(
+                    child: Text(
+                      "Students",
+                      style: TextStyle(color: Colors.black, fontSize: 16),
+                    ),
+                  ),
+                ),
+              ),
             ],
-          )),
+          ),
+        ),
+        body: TabBarView(
+          children: [
+            teacher(context),
+            student(context),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -82,13 +87,16 @@ Widget teacher(BuildContext context) {
         margin: EdgeInsets.only(top: 7, bottom: 7),
         child: ListTile(
           title: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Text(
-              teachersdetail[index]["name"],
-              style: TextStyle(
-                fontSize: 20,
-              ),
-            ),
+            padding: const EdgeInsets.all(10),
+            child: Text(teachersdetail[index]["name"],
+                style: GoogleFonts.nunito(
+                    textStyle: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                ))),
+          ),
+          leading: CircleAvatar(
+            backgroundImage: AssetImage("assets/images/elon.jpg"),
           ),
           trailing: IconButton(
             icon: Icon(Icons.call),
@@ -122,8 +130,16 @@ Widget student(BuildContext context) {
               padding: const EdgeInsets.all(10.0),
               child: Text(
                 studentdetails[index]["name"],
-                style: TextStyle(fontSize: 20),
+                style: GoogleFonts.nunito(
+                  textStyle: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
               ),
+            ),
+            leading: CircleAvatar(
+              backgroundImage: AssetImage("assets/images/elon.jpg"),
             ),
             trailing: IconButton(
               icon: Icon(Icons.call),
@@ -170,9 +186,13 @@ popUpContainer(BuildContext context, index) {
                           TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
                     ),
                     SizedBox(height: 5),
-                    Text(
-                      teachersdetail[index]["desp"],
-                      style: TextStyle(fontSize: 15),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 50, right: 50),
+                      child: Text(
+                        "Faculty:  " + teachersdetail[index]["Faculty"],
+                        style: TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.w500),
+                      ),
                     ),
                     SizedBox(height: 10),
                     Row(

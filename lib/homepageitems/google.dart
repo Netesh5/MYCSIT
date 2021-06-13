@@ -17,30 +17,33 @@ class _GoogleState extends State<Google> {
       appBar: AppBar(
         title: Text("Google Search"),
       ),
-      body: Stack(
-        children: [
-          WebView(
-            onPageFinished: (url) {
-              setState(() {
-                _isLoading = false;
-              });
-            },
-            initialUrl: "https://www.google.com/",
-            javascriptMode: JavascriptMode.unrestricted,
-            allowsInlineMediaPlayback: true,
-            gestureNavigationEnabled: true,
-            onWebViewCreated: (WebViewController webViewController) {
-              _controller.complete(webViewController);
-            },
-          ),
-          _isLoading
-              ? Center(
-                  child: CircularProgressIndicator(
-                    color: Colors.blueGrey,
-                  ),
-                )
-              : Text(""),
-        ],
+      body: Hero(
+        tag: "google",
+        child: Stack(
+          children: [
+            WebView(
+              onPageFinished: (url) {
+                setState(() {
+                  _isLoading = false;
+                });
+              },
+              initialUrl: "https://www.google.com/",
+              javascriptMode: JavascriptMode.unrestricted,
+              allowsInlineMediaPlayback: true,
+              gestureNavigationEnabled: true,
+              onWebViewCreated: (WebViewController webViewController) {
+                _controller.complete(webViewController);
+              },
+            ),
+            _isLoading
+                ? Center(
+                    child: CircularProgressIndicator(
+                      color: Colors.blueGrey,
+                    ),
+                  )
+                : Text(""),
+          ],
+        ),
       ),
     );
   }

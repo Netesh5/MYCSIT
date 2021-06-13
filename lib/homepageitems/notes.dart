@@ -30,7 +30,7 @@ class _NotesState extends State<Notes> {
       length: semitems.length,
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Notes"),
+          title: Hero(tag: "notes", child: Text("Notes")),
           bottom: TabBar(
             isScrollable: true,
             indicatorSize: TabBarIndicatorSize.label,

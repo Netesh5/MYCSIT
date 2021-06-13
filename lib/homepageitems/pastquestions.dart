@@ -5,9 +5,12 @@ class Pastquestions extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(
-            'Past Questions',
-            style: TextStyle(color: Colors.black),
+          title: Hero(
+            tag: "pastQuestions",
+            child: Text(
+              'Past Questions',
+              style: TextStyle(color: Colors.black),
+            ),
           ),
           backgroundColor: Colors.white,
           iconTheme: IconThemeData(
@@ -15,28 +18,30 @@ class Pastquestions extends StatelessWidget {
           ),
         ),
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Sem('First Semester'),
-              SizedBox(height: 8.0),
-              Sem('Second Semester'),
-              SizedBox(height: 8.0),
-              Sem('Third Semester'),
-              SizedBox(height: 8.0),
-              Sem('Fourth Semester'),
-              SizedBox(height: 8.0),
-              Sem('Fifth Semester'),
-              SizedBox(height: 8.0),
-              Sem('Sixth Semester'),
-              SizedBox(height: 8.0),
-              Sem('Seventh Semester'),
-              SizedBox(height: 8.0),
-              Sem('Eighth Semester'),
-              SizedBox(height: 8.0),
-              Sem('Ninth Semester'),
-              SizedBox(height: 8.0)
-            ],
+          child: Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Sem('First Semester'),
+                SizedBox(height: 8.0),
+                Sem('Second Semester'),
+                SizedBox(height: 8.0),
+                Sem('Third Semester'),
+                SizedBox(height: 8.0),
+                Sem('Fourth Semester'),
+                SizedBox(height: 8.0),
+                Sem('Fifth Semester'),
+                SizedBox(height: 8.0),
+                Sem('Sixth Semester'),
+                SizedBox(height: 8.0),
+                Sem('Seventh Semester'),
+                SizedBox(height: 8.0),
+                Sem('Eighth Semester'),
+                SizedBox(height: 8.0),
+                Sem('Ninth Semester'),
+                SizedBox(height: 8.0)
+              ],
+            ),
           ),
         ));
   }

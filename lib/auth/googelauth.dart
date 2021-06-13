@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:MYCSIT/error_handle/dialogbox.dart';
@@ -33,9 +34,9 @@ class GoogleSignInProvider extends ChangeNotifier {
         isSigningIn = false;
         notifyListeners();
       }
-    } catch (error) {
+      // ignore: unused_catch_stack
+    } on PlatformException catch (error, stackTrace) {
       _autherrorDialog.showDialogg(context, error.message);
-      notifyListeners();
     }
   }
 
@@ -46,7 +47,6 @@ class GoogleSignInProvider extends ChangeNotifier {
       FirebaseAuth.instance.signOut();
     } catch (error) {
       _autherrorDialog.showDialogg(context, error.message);
-      notifyListeners();
     }
   }
 }

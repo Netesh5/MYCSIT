@@ -66,12 +66,12 @@ class _HomepageState extends State<Homepage> {
         onTap: _ontap,
       ),
       body: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.only(top: 10, left: 10, right: 10),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Text(
                 "Hi! " + user.displayName,
                 style: GoogleFonts.nunito(
                   textStyle: TextStyle(
@@ -80,72 +80,110 @@ class _HomepageState extends State<Homepage> {
                   ),
                 ),
               ),
-              Text(greeting(),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Text(greeting(),
                   style: GoogleFonts.nunito(
                     textStyle: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w700,
                     ),
                   )),
-              SizedBox(
-                height: 10,
-              ),
-              CarouselSlider(
-                items: [
-                  Container(
-                    margin: EdgeInsets.all(8.0),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8.0),
-                      image: DecorationImage(
-                          image: AssetImage("assets/images/1.jpg"),
-                          fit: BoxFit.fill),
-                    ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            CarouselSlider(
+              items: [
+                Container(
+                  margin: EdgeInsets.all(8.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8.0),
+                    image: DecorationImage(
+                        image: AssetImage("assets/images/1.jpg"),
+                        fit: BoxFit.fill),
                   ),
-                  Container(
-                    margin: EdgeInsets.all(8.0),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8.0),
-                      image: DecorationImage(
-                          image: AssetImage("assets/images/2.jpg"),
-                          fit: BoxFit.fill),
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.all(8.0),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8.0),
-                      image: DecorationImage(
-                          image: AssetImage("assets/images/3.jpg"),
-                          fit: BoxFit.fill),
-                    ),
-                  ),
-                ],
-                options: CarouselOptions(
-                  height: 180.0,
-                  enlargeCenterPage: true,
-                  autoPlay: true,
-                  aspectRatio: 16 / 9,
-                  autoPlayCurve: Curves.fastOutSlowIn,
-                  enableInfiniteScroll: true,
-                  autoPlayAnimationDuration: Duration(milliseconds: 800),
-                  viewportFraction: 0.8,
                 ),
+                Container(
+                  margin: EdgeInsets.all(8.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8.0),
+                    image: DecorationImage(
+                        image: AssetImage("assets/images/2.jpg"),
+                        fit: BoxFit.fill),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.all(8.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8.0),
+                    image: DecorationImage(
+                        image: AssetImage("assets/images/3.jpg"),
+                        fit: BoxFit.fill),
+                  ),
+                ),
+              ],
+              options: CarouselOptions(
+                height: 180.0,
+                enlargeCenterPage: true,
+                autoPlay: true,
+                aspectRatio: 16 / 9,
+                autoPlayCurve: Curves.fastOutSlowIn,
+                enableInfiniteScroll: true,
+                autoPlayAnimationDuration: Duration(milliseconds: 800),
+                viewportFraction: 0.8,
               ),
-              SizedBox(
-                height: 30,
-              ),
-              Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      InkWell(
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Column(
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20),
+                        child: InkWell(
+                          child: Hero(
+                            tag: "noticeboard",
+                            child: Column(
+                              children: [
+                                Container(
+                                  alignment: Alignment.center,
+                                  child: FaIcon(
+                                    FontAwesomeIcons.chalkboardTeacher,
+                                    size: 60,
+                                  ),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(50),
+                                      border: Border.all(color: Colors.black)),
+                                  width: 100,
+                                  height: 100,
+                                ),
+                                SizedBox(height: 15),
+                                Text("Notice Board",
+                                    style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w500)),
+                              ],
+                            ),
+                          ),
+                          onTap: () {
+                            Navigator.pushNamed(context, "/noticeboard");
+                          },
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: InkWell(
                         child: Column(
                           children: [
                             Container(
                               alignment: Alignment.center,
                               child: FaIcon(
-                                FontAwesomeIcons.chalkboardTeacher,
+                                FontAwesomeIcons.book,
                                 size: 60,
                               ),
                               decoration: BoxDecoration(
@@ -155,46 +193,23 @@ class _HomepageState extends State<Homepage> {
                               height: 100,
                             ),
                             SizedBox(height: 15),
-                            Text("Notice Board",
-                                style: TextStyle(
-                                    fontSize: 15, fontWeight: FontWeight.w500)),
-                          ],
-                        ),
-                        onTap: () {
-                          Navigator.pushNamed(context, "/noticeboard");
-                        },
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 30.0),
-                        child: InkWell(
-                          child: Column(
-                            children: [
-                              Container(
-                                alignment: Alignment.center,
-                                child: FaIcon(
-                                  FontAwesomeIcons.book,
-                                  size: 60,
-                                ),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(50),
-                                    border: Border.all(color: Colors.black)),
-                                width: 100,
-                                height: 100,
-                              ),
-                              SizedBox(height: 15),
-                              Text("Notes",
+                            Hero(
+                              tag: "notes",
+                              child: Text("Notes",
                                   style: TextStyle(
                                       fontSize: 15,
                                       fontWeight: FontWeight.w500)),
-                            ],
-                          ),
-                          onTap: () {
-                            Navigator.pushNamed(context, "/notes");
-                          },
+                            ),
+                          ],
                         ),
+                        onTap: () {
+                          Navigator.pushNamed(context, "/notes");
+                        },
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 30.0),
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: 20.0),
                         child: InkWell(
                           child: Column(
                             children: [
@@ -211,10 +226,13 @@ class _HomepageState extends State<Homepage> {
                                 height: 100,
                               ),
                               SizedBox(height: 15),
-                              Text("Past Questions",
-                                  style: TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w500)),
+                              Hero(
+                                tag: "pastQuestions",
+                                child: Text("Past Questions",
+                                    style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w500)),
+                              ),
                             ],
                           ),
                           onTap: () {
@@ -222,42 +240,50 @@ class _HomepageState extends State<Homepage> {
                           },
                         ),
                       ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 30.0),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 30.0, left: 20),
                         child: InkWell(
-                          child: Column(
-                            children: [
-                              Container(
-                                alignment: Alignment.center,
-                                child: FaIcon(
-                                  FontAwesomeIcons.shareSquare,
-                                  size: 60,
+                          child: Hero(
+                            tag: "resourceshare",
+                            child: Column(
+                              children: [
+                                Container(
+                                  alignment: Alignment.center,
+                                  child: FaIcon(
+                                    FontAwesomeIcons.shareSquare,
+                                    size: 60,
+                                  ),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(50),
+                                      border: Border.all(color: Colors.black)),
+                                  width: 100,
+                                  height: 100,
                                 ),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(50),
-                                    border: Border.all(color: Colors.black)),
-                                width: 100,
-                                height: 100,
-                              ),
-                              SizedBox(height: 15),
-                              Text("Resource share",
-                                  style: TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w500)),
-                            ],
+                                SizedBox(height: 15),
+                                Text("Resource share",
+                                    style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w500)),
+                              ],
+                            ),
                           ),
                           onTap: () {
                             Navigator.pushNamed(context, "/resourceshare");
                           },
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 30.0, left: 30.0),
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                          top: 30.0,
+                        ),
                         child: InkWell(
                           child: Column(
                             children: [
@@ -274,10 +300,12 @@ class _HomepageState extends State<Homepage> {
                                 height: 100,
                               ),
                               SizedBox(height: 15),
-                              Text("Contact info",
-                                  style: TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w500)),
+                              Hero(
+                                  tag: "contactinfo",
+                                  child: Text("Contact info",
+                                      style: TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w500))),
                             ],
                           ),
                           onTap: () {
@@ -285,41 +313,46 @@ class _HomepageState extends State<Homepage> {
                           },
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 30.0, left: 30.0),
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 30.0, right: 20.0),
                         child: InkWell(
-                          child: Column(
-                            children: [
-                              Container(
-                                alignment: Alignment.center,
-                                child: FaIcon(
-                                  FontAwesomeIcons.google,
-                                  size: 60,
+                          child: Hero(
+                            tag: "google",
+                            child: Column(
+                              children: [
+                                Container(
+                                  alignment: Alignment.center,
+                                  child: FaIcon(
+                                    FontAwesomeIcons.google,
+                                    size: 60,
+                                  ),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(50),
+                                      border: Border.all(color: Colors.black)),
+                                  width: 100,
+                                  height: 100,
                                 ),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(50),
-                                    border: Border.all(color: Colors.black)),
-                                width: 100,
-                                height: 100,
-                              ),
-                              SizedBox(height: 15),
-                              Text("Google",
-                                  style: TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w500)),
-                            ],
+                                SizedBox(height: 15),
+                                Text("Google",
+                                    style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w500)),
+                              ],
+                            ),
                           ),
                           onTap: () {
                             Navigator.pushNamed(context, "/google");
                           },
                         ),
                       ),
-                    ],
-                  ),
-                ],
-              )
-            ],
-          ),
+                    ),
+                  ],
+                ),
+              ],
+            )
+          ],
         ),
       ),
     );
