@@ -2,8 +2,6 @@ import 'package:MYCSIT/homepageitems/notifications.dart';
 import 'package:MYCSIT/statemgnt/Userstate.dart';
 import 'package:MYCSIT/draweritems/contactus.dart';
 import 'package:MYCSIT/draweritems/feedback.dart';
-import 'package:MYCSIT/homepageitems/role_based_homepage/homepage.dart';
-
 import 'package:MYCSIT/homepageitems/notes.dart';
 import 'package:MYCSIT/homepageitems/noticeboard.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -11,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:MYCSIT/loginscreens/loginpage1.dart';
 import 'homepageitems/pastquestions.dart';
 import 'homepageitems/resourceshare.dart';
-import 'homepageitems/contactinfo.dart';
+import 'homepageitems/contactinfo/contactinfo.dart';
 import 'homepageitems/google.dart';
 
 void main() async {
@@ -44,7 +42,6 @@ class _MyappState extends State<Myapp> {
       routes: {
         "/": (context) => Userstate(),
         "/loginpage1": (context) => Loginpage(),
-        "/homepage": (context) => Homepage(),
         /*  "/loginpage2": (context) => Loginpage2(), */
         "/notifications": (context) => Notifications(),
         "/noticeboard": (context) => Noticeboard(),

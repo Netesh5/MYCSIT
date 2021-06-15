@@ -36,7 +36,7 @@ class _MydrawerState extends State<Mydrawer> {
             ),
             ListTile(
               onTap: () {
-                Navigator.pushNamed(context, "/homepage");
+                Navigator.pop(context);
               },
               leading: Icon(
                 Icons.home,

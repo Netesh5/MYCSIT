@@ -1,6 +1,6 @@
 import 'package:MYCSIT/auth/googelauth.dart';
 import 'package:MYCSIT/homepageitems/role_based_homepage/admin_homepage.dart';
-import 'package:MYCSIT/homepageitems/role_based_homepage/homepage.dart';
+import 'package:MYCSIT/homepageitems/student_homepage/sem3rd_homepage.dart';
 import 'package:MYCSIT/homepageitems/role_based_homepage/normal_user_homepage.dart';
 import 'package:MYCSIT/loginscreens/loginpage1.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -39,7 +39,9 @@ class Userstate extends StatelessWidget {
                       if (user["role"] == "admin") {
                         return AdminHomepage();
                       } else if (user["role"] == "student") {
-                        return Homepage();
+                        if (user["semester"] == "three") {
+                          return Homepage3();
+                        }
                       } else {
                         return NormalHomepage();
                       }
