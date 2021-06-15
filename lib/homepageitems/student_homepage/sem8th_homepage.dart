@@ -6,13 +6,12 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 // ignore: must_be_immutable
-class Homepage extends StatefulWidget {
+class Homepage8 extends StatefulWidget {
   @override
-  _HomepageState createState() => _HomepageState();
+  _Homepage8State createState() => _Homepage8State();
 }
 
-class _HomepageState extends State<Homepage> {
-  Homepage homepage = Homepage();
+class _Homepage8State extends State<Homepage8> {
   String greeting() {
     var hour = DateTime.now().hour;
     if (hour < 12) {
