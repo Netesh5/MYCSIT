@@ -5,7 +5,7 @@ class autherrorDialog {
   Future<void> showDialogg(BuildContext context, errorDetail) async {
     showDialog(
         context: context,
-        builder: (BuildContext context) {
+        builder: (context) {
           return AlertDialog(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
@@ -36,46 +36,49 @@ class autherrorDialog {
         });
   }
 
-  showDialoggg(BuildContext context, provider) {
-    return showDialog(
+  Future<void> showDialoggg(BuildContext context, provider) async {
+    showDialog(
         context: context,
-        builder: (context) {
-          return AlertDialog(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-            title: Row(
-              children: [
-                Icon(Icons.logout_rounded),
-                SizedBox(width: 20),
-                Text(
-                  "Do you want to log out?",
-                  style: TextStyle(fontSize: 18),
+        builder: (dialogContext) {
+          return StatefulBuilder(builder: (context, setState) {
+            return AlertDialog(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              title: Row(
+                children: [
+                  Icon(Icons.logout_rounded),
+                  SizedBox(width: 20),
+                  Text(
+                    "Do you want to log out?",
+                    style: TextStyle(fontSize: 18),
+                  ),
+                ],
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text(
+                    "No",
+                    style: TextStyle(fontSize: 16),
+                  ),
+                ),
+                TextButton(
+                  onPressed: () {
+                    provider
+                        .logout(context)
+                        .then((value) => Navigator.pop(context));
+                  },
+                  child: Text(
+                    "Yes",
+                    style: TextStyle(fontSize: 16),
+                  ),
                 ),
               ],
-            ),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: Text(
-                  "No",
-                  style: TextStyle(fontSize: 16),
-                ),
-              ),
-              TextButton(
-                onPressed: () {
-                  provider.Logout(context)
-                      .then((value) => Navigator.pop(context));
-                },
-                child: Text(
-                  "Yes",
-                  style: TextStyle(fontSize: 16),
-                ),
-              ),
-            ],
-          );
+            );
+          });
         });
   }
 }

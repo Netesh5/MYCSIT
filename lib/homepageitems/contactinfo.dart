@@ -169,7 +169,9 @@ popUpContainer(BuildContext context, index) {
         return Center(
           child: SingleChildScrollView(
             child: Material(
-              child: Container(
+              child: AnimatedContainer(
+                duration: Duration(milliseconds: 800),
+                curve: Curves.elasticInOut,
                 width: width,
                 height: height,
                 child: Column(
@@ -179,7 +181,7 @@ popUpContainer(BuildContext context, index) {
                       child: Image.asset("assets/images/elon.jpg"),
                       borderRadius: BorderRadius.circular(30),
                     ),
-                    SizedBox(height: 10),
+                    SizedBox(height: 20),
                     Text(
                       teachersdetail[index]["name"],
                       style:
@@ -265,7 +267,7 @@ popUpContainerstudent(BuildContext context, index) {
                         child: Image.asset("assets/images/elon.jpg"),
                         borderRadius: BorderRadius.circular(30),
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: 20),
                       Text(
                         studentdetails[index]["name"],
                         style: TextStyle(

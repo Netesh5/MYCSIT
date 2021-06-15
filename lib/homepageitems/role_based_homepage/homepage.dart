@@ -301,11 +301,14 @@ class _HomepageState extends State<Homepage> {
                               ),
                               SizedBox(height: 15),
                               Hero(
-                                  tag: "contactinfo",
-                                  child: Text("Contact info",
-                                      style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w500))),
+                                tag: "contactinfo",
+                                child: Text(
+                                  "Contact Info",
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w500),
+                                ),
+                              ),
                             ],
                           ),
                           onTap: () {
