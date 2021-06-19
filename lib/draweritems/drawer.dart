@@ -31,7 +31,8 @@ class _MydrawerState extends State<Mydrawer> {
                   ),
                   accountEmail: Text(user.email),
                   currentAccountPicture: CircleAvatar(
-                    backgroundImage: NetworkImage(user.photoURL),
+                    backgroundImage: NetworkImage(user.photoURL) ??
+                        AssetImage("assets/images/elon.jpg"),
                   )),
             ),
             ListTile(
