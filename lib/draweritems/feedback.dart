@@ -7,6 +7,21 @@ class FeedBack extends StatelessWidget {
       appBar: AppBar(
         title: Text("Feedback"),
       ),
+      body: Column(
+        children: [
+          TextField(
+            decoration: InputDecoration(
+              hintText: "Type your suggestion",
+            ),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Center(
+              child: Text("Send"),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

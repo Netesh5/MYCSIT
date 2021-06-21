@@ -66,6 +66,61 @@ class Contactus extends StatelessWidget {
                   ],
                 ),
               ),
+              Container(
+                height: 600,
+                width: MediaQuery.of(context).size.width * 0.8,
+                child: Column(
+                  children: [
+                    ClipRRect(
+                      child: Image.asset("assets/images/elon.jpg"),
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      "Nitesh Paudel",
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      children: [
+                        InkWell(
+                          child: FaIcon(
+                            FontAwesomeIcons.facebook,
+                            size: 30,
+                          ),
+                          onTap: () {},
+                        ),
+                        SizedBox(width: 20),
+                        InkWell(
+                          child: FaIcon(
+                            FontAwesomeIcons.instagram,
+                            size: 30,
+                          ),
+                          onTap: () {},
+                        ),
+                        InkWell(
+                          child: FaIcon(
+                            FontAwesomeIcons.twitter,
+                            size: 30,
+                          ),
+                          onTap: () {},
+                        ),
+                        InkWell(
+                          child: FaIcon(
+                            FontAwesomeIcons.github,
+                            size: 30,
+                          ),
+                          onTap: () {},
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ));
