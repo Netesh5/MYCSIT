@@ -9,6 +9,9 @@ class FeedBack extends StatelessWidget {
       ),
       body: Column(
         children: [
+          SizedBox(
+            height: 20,
+          ),
           TextField(
             decoration: InputDecoration(
               hintText: "Type your suggestion",
