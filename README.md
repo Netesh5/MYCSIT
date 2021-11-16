@@ -1,8 +1,10 @@
 # MYCSIT
 
-A new Flutter project.
+A new Flutter project for CSIT Students
 
 ## Getting Started
+
+Some Screenshots :
 
 This project is a starting point for a Flutter application.
 
