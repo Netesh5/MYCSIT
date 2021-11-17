@@ -3,7 +3,12 @@
 A new Flutter project for CSIT Students
 
 ## Getting Started
-
+This app is specially developed for CSIT students.
+some feature :
+* Notice board: Teacher can send notice to sudents of their respective class.
+* Notes : Students can view notes 
+* Past Question : This section has all semester question paper.
+* Resource share : Student can share their notes/queries/soultion .
 Some Screenshots :
 
 <img src="https://user-images.githubusercontent.com/48326144/141945142-1d34e4b4-e04a-445c-ac51-2b455ee93c23.jpg" width="270" height="500"> <img src="https://user-images.githubusercontent.com/48326144/141944982-15e207ed-805f-4289-a91e-031ae6ce6024.jpg " width="270" height="500"> <img src="https://user-images.githubusercontent.com/48326144/141945024-cfc036f9-2955-4e2a-8dd7-f3ec8d8c16d5.jpg" width="270" height="500">
